@@ -1,0 +1,123 @@
+
+
+.notifications {
+    margin: 0.5rem;
+    position: fixed;
+    z-index: 1100;
+
+    // Default positioning.
+    // Can be over-written by custom notification placement per application.
+    bottom: 0px;
+    right: 0px;
+
+
+
+
+    & .notification-corner {
+
+    }
+
+    .notification-corner .notification-wrapper,
+    .notification-corner .notification-container {
+        position: relative;
+        display: block;
+        height: inherit;
+        width: inherit;
+    }
+
+    .notification-wrapper {
+        z-index: 1;
+        position: absolute;
+        display: inline-block;
+        height: 0;
+        width: 0;
+    }
+
+    .notification-container {
+        display: none;
+        z-index: 1;
+        position: absolute;
+    }
+
+    .notification-hidable {
+        cursor: pointer;
+    }
+
+    [data-notify-text],[data-notify-html] {
+        position: relative;
+    }
+
+    .notification-arrow {
+        position: absolute;
+        z-index: 2;
+        width: 0;
+        height: 0;
+    }
+}
+
+
+
+
+
+
+.notification-bootstrap-base {
+    background-color: #fcf8e3;
+    border-width: 2px;
+    border-style: solid;
+    font-weight: bold;
+    padding: 1rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    z-index: 1100;
+
+    [data-notify-text], [data-notify-html] {
+        vertical-align: middle;
+    }
+
+    &:before {
+        display: inline-block;
+        font-family: Fontello;
+        font-size: 22px;
+        vertical-align: middle;
+    }
+
+    &.notification-bootstrap-success {
+        background-color: #DFF0D8;
+        border-color: #468847;
+        color: #468847;
+
+        &:before {
+            content: "\e803";
+        }
+    }
+
+    &.notification-bootstrap-danger {
+        background-color: #F2DEDE;
+        border-color: #B94A48;
+        color: #B94A48;
+
+        &:before {
+            content: "\e804";
+        }
+    }
+
+    &.notification-bootstrap-warning {
+        background-color: #FCF8E3;
+        border-color: #FBEED5;
+        color: #C09853;
+
+        &:before {
+            content: "\f128";
+        }
+    }
+
+    &.notification-bootstrap-info {
+        background-color: #D9EDF7;
+        border-color: #BCE8F1;
+        color: #3A87AD;
+
+        &:before {
+            content: "\f129";
+        }
+    }
+}

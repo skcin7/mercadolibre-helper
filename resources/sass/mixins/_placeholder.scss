@@ -1,0 +1,9 @@
+@mixin placeholder() {
+    ::placeholder {
+        color: #888 !important;
+        font-style: italic;
+    }
+    :focus::placeholder {
+        font-style: normal !important;
+    }
+}

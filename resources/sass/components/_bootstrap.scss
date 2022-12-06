@@ -1,0 +1,70 @@
+// Body
+$body-bg: #fff;
+
+// Typography
+$font-family-sans-serif: 'Open Sans', sans-serif;
+//$font-family-monospace: var(--bs-font-monospace) !important;
+$font-family-monospace: "Lucida Console", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Custom
+$enable-rounded: false;
+$enable-shadows: false;
+$branding-color: #0066CC;
+$black: #000;
+$white: #fff;
+$bootstrap_enabled: true;
+
+// Form Checks:
+$form-check-input-width: 1.25em;
+
+
+
+
+// scss-docs-start import-stack
+// Configuration
+@import "../../bootstrap/5.1.3/scss/functions";
+@import "../../bootstrap/5.1.3/scss/variables";
+@import "../../bootstrap/5.1.3/scss/mixins";
+@import "../../bootstrap/5.1.3/scss/utilities";
+
+// Layout & components
+@import "../../bootstrap/5.1.3/scss/root";
+@import "../../bootstrap/5.1.3/scss/reboot";
+@import "../../bootstrap/5.1.3/scss/type";
+@import "../../bootstrap/5.1.3/scss/images";
+@import "../../bootstrap/5.1.3/scss/containers";
+@import "../../bootstrap/5.1.3/scss/grid";
+@import "../../bootstrap/5.1.3/scss/tables";
+@import "../../bootstrap/5.1.3/scss/forms";
+@import "../../bootstrap/5.1.3/scss/buttons";
+@import "../../bootstrap/5.1.3/scss/transitions";
+@import "../../bootstrap/5.1.3/scss/dropdown";
+@import "../../bootstrap/5.1.3/scss/button-group";
+@import "../../bootstrap/5.1.3/scss/nav";
+@import "../../bootstrap/5.1.3/scss/navbar";
+@import "../../bootstrap/5.1.3/scss/card";
+@import "../../bootstrap/5.1.3/scss/accordion";
+@import "../../bootstrap/5.1.3/scss/breadcrumb";
+@import "../../bootstrap/5.1.3/scss/pagination";
+@import "../../bootstrap/5.1.3/scss/badge";
+@import "../../bootstrap/5.1.3/scss/alert";
+@import "../../bootstrap/5.1.3/scss/progress";
+@import "../../bootstrap/5.1.3/scss/list-group";
+@import "../../bootstrap/5.1.3/scss/close";
+@import "../../bootstrap/5.1.3/scss/toasts";
+@import "../../bootstrap/5.1.3/scss/modal";
+@import "../../bootstrap/5.1.3/scss/tooltip";
+@import "../../bootstrap/5.1.3/scss/popover";
+@import "../../bootstrap/5.1.3/scss/carousel";
+@import "../../bootstrap/5.1.3/scss/spinners";
+@import "../../bootstrap/5.1.3/scss/offcanvas";
+@import "../../bootstrap/5.1.3/scss/placeholders";
+
+// Helpers
+@import "../../bootstrap/5.1.3/scss/helpers";
+
+// Utilities
+@import "../../bootstrap/5.1.3/scss/utilities/api";
+// scss-docs-end import-stack

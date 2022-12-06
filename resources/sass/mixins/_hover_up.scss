@@ -1,0 +1,10 @@
+@mixin hover_up($hover_up_amount: -0.25rem, $transition_delay: 0.05s) {
+    position: relative;
+    top: 0rem;
+    transition: top $transition_delay;
+
+    &:hover {
+        top: $hover_up_amount;
+        //top: -2px;
+    }
+}

@@ -1,0 +1,144 @@
+
+// scss-docs-start alert-color-mixin
+@mixin crypt-color($color) {
+    background-color: lighten($color, 45%);
+    border-color: darken($color, 15%);
+    color: darken($color, 45%);
+
+    // This is how Bootstrap handles the color changing for their alerts module:
+    //background-color: shift-color($i, $alert-bg-scale);
+    //border-color: shift-color($i, $alert-border-scale);
+    //color: shift-color($i, $alert-color-scale);
+
+    &.crypt_striped,
+    &[crypt_striped]:not(&[crypt_striped='false']),
+    {
+        @include gradient-striped(rgba($color, .15), 45deg);
+    }
+
+    &:before {
+        color: darken($color, 35%);
+    }
+}
+// scss-docs-end alert-color-mixin
+
+
+
+// Alertbox is a dialog box to show helpful status messages to the user in the DOM.
+.crypt,
+[data-crypt]:not([data-crypt='false']),
+{
+    // Styles that are shared with all Alertboxes:
+    border: 2px solid transparent;
+    margin-bottom: 1rem;
+    padding: 1.0rem 1.0rem;
+    position: relative;
+
+
+    // Combine all the theme colors and custom colors, and create Alertboxes for each of these colors.
+    $crypt-colors: map-collect($theme-colors, $custom-colors, (
+        'default': $gray-700,
+    ));
+
+    // When no valid Alertbox color is specified, revert back to a default one to use.
+    &:not(&.crypt_branding, &.crypt_primary, &.crypt_secondary, &.crypt_success, &.crypt_info, &.crypt_warning, &.crypt_danger, &.crypt_light, &.crypt_dark) {
+        @include crypt-color($gray-700);
+
+        //&.crypt_icon,
+        //&[crypt_icon]:not(&[crypt_icon='false']) {
+        //    &:before {
+        //        content: '\E832';
+        //    }
+        //}
+    }
+
+    // Loop through all the theme colors to make versions of the Alertbox for each color in the theme.
+    @each $crypt-name, $color in $crypt-colors {
+        &.crypt_#{$crypt-name} {
+            @include crypt-color($color);
+        }
+    }
+
+    // Shared stylings for all the stiped Alertboxes.
+    &.crypt_striped {
+        background-size: 2rem 2rem;
+        //text-shadow: 1px 1px rgb(255 255 255 / 0.5);
+    }
+
+
+    // Display an icon as part of the Alertbox.
+    &.crypt_icon,
+    &[crypt_icon]:not(&[crypt_icon='false']),
+    {
+        &:before {
+            content: '\E832';
+            font-family: "fontello";
+            //font-size: 1.25rem;
+            font-style: normal;
+            font-weight: normal;
+            margin-right: 0.25rem;
+        }
+        // When an Alertbox has an icon, this is the CSS to be shared for any Alertbox version. Only the content is changed.
+
+        //&:not(&.crypt_branding, &.crypt_primary, &.crypt_secondary, &.crypt_success, &.crypt_info, &.crypt_warning, &.crypt_danger, &.crypt_light, &.crypt_dark),
+        //&.crypt_default,
+        //&.crypt_branding,
+        //&.crypt_primary,
+        //&.crypt_secondary,
+        //&.crypt_light,
+        //&.crypt_dark {
+        //    &:before { content: '\E832';
+        //}
+        &.crypt_success {
+            &:before { content: '\E803'; }
+        }
+        &.crypt_info {
+            &:before { content: '\F129'; }
+        }
+        &.crypt_warning {
+            &:before { content: '\E814'; }
+        }
+        &.crypt_danger {
+            &:before { content: '\E804'; }
+        }
+
+        // A custom icon is passed as a data attribute into the Alertbox, so use that as the Alertbox icon instead.
+        &[data-crypt-icon] {
+            &:before {
+                content: attr(data-crypt-icon) " ";
+            }
+        }
+    }
+
+
+    // Whether the Alertbox can be closed or not using a close button inside the Alertbox.
+    &.crypt_closeable,
+    &[crypt_closeable]:not(&[crypt_closeable='false']),
+    {
+        .crypt_close {
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+            border: 0;
+            box-sizing: content-box;
+            color: #000;
+            height: 1em;
+            opacity: 0.5;
+            padding: 0.25em 0.25em;
+            position: absolute;
+            right: 0.5rem;
+            top: 0.5rem;
+            width: 1em;
+
+            &:hover {
+                color: #000;
+                opacity: 0.75;
+                text-decoration: none;
+            }
+        }
+    }
+    &:not(.crypt_closeable) {
+        .crypt_close {
+            display: none;
+        }
+    }
+
+}

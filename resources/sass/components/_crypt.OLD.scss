@@ -1,0 +1,40 @@
+.crypt {
+    //background: repeating-linear-gradient(
+    //        45deg,
+    //        rgba(0, 0, 0, 0.2),
+    //        rgba(0, 0, 0, 0.2) 10px,
+    //        rgba(0, 0, 0, 0.3) 10px,
+    //        rgba(0, 0, 0, 0.3) 20px
+    //);
+
+    //background-image: linear-gradient(-45deg,
+    //    darken($warning, 25%) 25%, transparent 25%, transparent 50%, darken($warning, 25%) 50%, darken($warning, 25%) 75%, transparent 75%, transparent);
+    //background-size: 35px 35px;
+    border-width: 2px !important;
+    font-weight: bold;
+    padding: 1rem !important;
+
+    &.crypt-danger {
+        border-color: darken($danger, 15%) !important;
+        box-shadow: 4px 4px 0 lighten($danger, 15%);
+        color: darken($danger, 15%);
+    }
+
+    &.crypt-info {
+        border-color: darken($info, 25%) !important;
+        box-shadow: 4px 4px 0 lighten($info, 15%);
+        color: darken($info, 25%);
+    }
+
+    &.crypt-success {
+        border-color: darken($success, 15%) !important;
+        box-shadow: 4px 4px 0 lighten($success, 15%);
+        color: darken($success, 15%);
+    }
+
+    &.crypt-warning {
+        border-color: darken($warning, 35%) !important;
+        box-shadow: 4px 4px 0 lighten($warning, 15%);
+        color: darken($warning, 35%);
+    }
+}

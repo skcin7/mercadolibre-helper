@@ -1,0 +1,37 @@
+// The appearance of the content which is selected in the document.
+// - default: #b3d4fc
+// - blue: #a8d1ff
+// - pink: #ffb7b7
+// - yellow: #fff2a8
+// From: https://css-tricks.com/overriding-the-default-text-selection-color-with-css/
+@mixin selection($selection_color: '') {
+    @if $selection_color == 'blue' {
+        ::selection {
+            background-color: #a8d1ff;
+            color: #000;
+            text-shadow: none;
+        }
+    }
+    @else if $selection_color == 'pink' {
+        ::selection {
+            background-color: #ffb7b7;
+            color: #000;
+            text-shadow: none;
+        }
+    }
+    @else if $selection_color == 'yellow' {
+        ::selection {
+            background-color: #fff2a8;
+            color: #000;
+            text-shadow: none;
+        }
+    }
+    @else {
+        // default - generic light blue
+        ::selection {
+            background-color: #b3d4fc;
+            color: #000;
+            text-shadow: none;
+        }
+    }
+}

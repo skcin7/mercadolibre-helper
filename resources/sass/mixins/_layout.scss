@@ -1,0 +1,61 @@
+@import '~bootstrap/scss/variables';
+
+@mixin layout() {
+    html, html > body {
+        background-color: #fff;
+        box-sizing: border-box;
+        color: #000;
+        font-family: $font-family-sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        scroll-behavior: auto !important;
+    }
+
+    html > body {
+        line-height: $line-height-base !important;
+        padding: 0;
+        position: relative;
+
+        #app {
+            display: flex;
+            flex-flow: column;
+            min-height: 100vh;
+
+            #header {
+                flex-basis: auto;
+                flex-grow: 0;
+                flex-shrink: 1;
+
+                //.dropdown-menu {
+                //    border-color: #888;
+                //    border-width: 2px !important;
+                //    box-shadow: 4px 4px 0 lighten(#888, 25%);
+                //}
+            }
+
+            #page_content {
+                flex-grow: 1;
+                flex-shrink: 1;
+                flex-basis: auto;
+
+                .container, .container-fluid {
+                    padding-bottom: 1rem !important;
+                    padding-top: 1rem !important;
+                    margin-bottom: 1rem !important;
+                }
+            }
+
+            #footer {
+                flex-basis: auto;
+                flex-grow: 0;
+                flex-shrink: 1;
+            }
+
+
+        }
+
+
+    }
+
+
+}

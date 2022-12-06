@@ -1,0 +1,461 @@
+/**
+ ____                _
+| __ )  ___  _ __ __| | ___ _ __
+|  _ \ / _ \| '__/ _` |/ _ \ '__|
+| |_) | (_) | | | (_| |  __/ |
+|____/ \___/|_|  \__,_|\___|_|
+
+Styling to add a border to a box/container.
+To add a border, simply add the 'border' CSS class to any element that a border is desired to be shown.
+To disable a border (without removing the 'border' class), you may add 'border_disabled', which disables any border from being shown.
+*/
+.border,
+.border:not( .border_disabled, [data-border-disabled]:not([data-border-disabled='false']) ),
+{
+    // Default styling for a border.
+    // NOTE: This styling will be overwritten based on the specific properties of this border.
+    border: 1px solid transparent;
+
+
+    /**
+     * NOTE: A border may optionally have 6 properties set of it (set by CSS class/data properties combinations)
+     * The customizable properties of a border are:
+     *   BorderColor
+     *   BorderDisabled
+     *   BorderPlacement
+     *   BorderRadius **NOT IMPLEMENTED YET**
+     *   BorderShadow
+     *   BorderStyle
+     *   BorderWidth
+    **/
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BorderColor
+    // ===========
+    // Specify the color to be used of the border.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    &[data-border-color],
+    //&:has(.border_color),
+    {
+        &[data-border-color='transparent'],
+        {
+            border-color: transparent !important;
+        }
+        &[data-border-color='initial'],
+        {
+            border-color: initial !important;
+        }
+        &[data-border-color='inherit'],
+        {
+            border-color: inherit !important;
+        }
+        &[data-border-color='rainbow'],
+        {
+            border-color: transparent !important;
+            border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+            border-image-slice: 1;
+        }
+        &[data-border-color='white'],
+        &[data-border-color='gray0'],
+        {
+            border-color: #fff !important;
+        }
+        &[data-border-color='gray1'],
+        &[data-border-color='gray-1'], // DEPRECIATED
+        {
+            border-color: $gray-100 !important;
+            //&.border_shadow[data-border-shadow='border'] {
+            //    box-shadow: 4px 4px 0 lighten($gray-100, 15%);
+            //}
+        }
+        &[data-border-color='gray2'],
+        &[data-border-color='gray-2'], // DEPRECIATED
+        {
+            border-color: $gray-200 !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($gray-200, 15%);
+            }
+        }
+        &[data-border-color='gray3'],
+        &[data-border-color='gray-3'], // DEPRECIATED
+        {
+            border-color: $gray-300 !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($gray-300, 15%);
+            }
+        }
+        &[data-border-color='gray4'],
+        &[data-border-color='gray-4'], // DEPRECIATED
+        {
+            border-color: $gray-400 !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($gray-400, 10%);
+            }
+        }
+        &[data-border-color='gray5'],
+        &[data-border-color='gray-5'], // DEPRECIATED
+        &[data-border-color='default'],
+        {
+            border-color: $gray-500 !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($gray-500, 15%);
+            }
+        }
+        &[data-border-color='gray6'],
+        &[data-border-color='gray-6'], // DEPRECIATED
+        {
+            border-color: $gray-600 !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($gray-600, 15%);
+            }
+        }
+        &[data-border-color='gray7'],
+        &[data-border-color='gray-7'], // DEPRECIATED
+        {
+            border-color: $gray-700 !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($gray-700, 15%);
+            }
+        }
+        &[data-border-color='gray8'],
+        &[data-border-color='gray-8'], // DEPRECIATED
+        {
+            border-color: $gray-800 !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($gray-800, 15%);
+            }
+        }
+        &[data-border-color='gray9'],
+        &[data-border-color='gray-9'], // DEPRECIATED
+        {
+            border-color: $gray-900 !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($gray-900, 15%);
+            }
+        }
+        &[data-border-color='black'],
+        &[data-border-color='gray10'],
+        {
+            border-color: #000 !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten(#000, 15%);
+            }
+        }
+        &[data-border-color='success'],
+        {
+            border-color: $success !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($success, 15%);
+            }
+        }
+        &[data-border-color='danger'],
+        &[data-border-color='error'],
+        {
+            border-color: $danger !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($danger, 15%);
+            }
+        }
+        &[data-border-color='info'],
+        {
+            border-color: $info !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($info, 15%);
+            }
+        }
+        &[data-border-color='warn'],
+        &[data-border-color='warning'],
+        {
+            border-color: $warning !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($warning, 15%);
+            }
+        }
+        &[data-border-color='dark'],
+        {
+            border-color: $dark !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($dark, 15%);
+            }
+        }
+        &[data-border-color='light'],
+        {
+            border-color: $light !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($light, 15%);
+            }
+        }
+        &[data-border-color='primary'],
+        {
+            border-color: $primary !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($primary, 15%);
+            }
+        }
+        &[data-border-color='secondary'],
+        {
+            border-color: $secondary !important;
+            &[data-box-shadow='border'] {
+                box-shadow: 4px 4px 0 lighten($secondary, 15%);
+            }
+        }
+        @if map-has-key($custom-colors, 'branding') {
+            &[data-border-color='branding'],
+            {
+                border-color: map-get($custom-colors, 'branding') !important;
+                &[data-box-shadow='border'] {
+                    box-shadow: 4px 4px 0 lighten(map-get($custom-colors, 'branding'), 15%);
+                }
+            }
+        }
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BorderDisabled
+    // ===========
+    // Disables the border.
+    // To disable the border, one of two methods may be used:
+    //   - Add a '.border_disabled' class to the root element
+    //   - Set a 'data-border-disabled' data attribute on the root element, set to any value other than 'false'
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BorderPlacement
+    // ===============
+    // Placement to use for the border.
+    // A border may be placed: 'left', 'right', 'top', and/or 'bottom'.
+    // Each placement found (in any order) in the 'data-border-placement' data attribute will have the placement used there.
+    // If no 'data-border-placement' data attribute is found, then all placements will be used (default).
+    // Example: <div class="border" data-border-placement="bottom right"> - Only show bottom and right border
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    &[data-border-placement],
+    //&:has(.border_placement),
+    {
+        &:not( [data-border-placement~=bottom] ),
+        {
+            border-bottom-width: 0 !important;
+        }
+        &:not( [data-border-placement~=left] ),
+        {
+            border-left-width: 0 !important;
+        }
+        &:not( [data-border-placement~=right] ),
+        {
+            border-right-width: 0 !important;
+        }
+        &:not( [data-border-placement~=top] ),
+        {
+            border-top-width: 0 !important;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BorderRadius **NOT IMPLEMENTED YET**
+    // ============
+    // Specify the border radius (rounding to use).
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // TODO Implement Border Radius
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BorderShadow
+    // =============
+    // Styling for the shadow of the border box element.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    &[data-border-shadow],
+    {
+        &[data-border-shadow='disabled'],
+        &[data-border-shadow='none'],
+        {
+            box-shadow: none;
+        }
+
+        // When the value of the 'shadow' property is 'border', then use the border color as the box shadow color.
+        // Otherwise, the shadow color to use is the value of the 'shadow' property.
+
+        &[data-border-shadow='border'][data-border-color='white'],
+        &[data-border-shadow='border'][data-border-color='gray0'],
+        &[data-border-shadow='white'],
+        &[data-border-shadow='gray0'],
+        {
+            box-shadow: 4px 4px 0 #fff;
+        }
+        &[data-border-shadow='border'][data-border-color='gray1'],
+        &[data-border-shadow='gray1'],
+        {
+            box-shadow: 4px 4px 0 lighten($gray-100, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='gray2'],
+        &[data-border-shadow='gray2'],
+        {
+            box-shadow: 4px 4px 0 lighten($gray-200, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='gray3'],
+        &[data-border-shadow='gray3'],
+        {
+            box-shadow: 4px 4px 0 lighten($gray-300, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='gray4'],
+        &[data-border-shadow='gray4'],
+        {
+            box-shadow: 4px 4px 0 lighten($gray-400, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='default'],
+        &[data-border-shadow='border'][data-border-color='gray5'],
+        &[data-border-shadow='default'],
+        &[data-border-shadow='gray5'],
+        {
+            box-shadow: 4px 4px 0 lighten($gray-500, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='gray6'],
+        &[data-border-shadow='gray6'],
+        {
+            box-shadow: 4px 4px 0 lighten($gray-600, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='gray7'],
+        &[data-border-shadow='gray7'],
+        {
+            box-shadow: 4px 4px 0 lighten($gray-700, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='gray8'],
+        &[data-border-shadow='gray8'],
+        {
+            box-shadow: 4px 4px 0 lighten($gray-800, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='gray9'],
+        &[data-border-shadow='gray9'],
+        {
+            box-shadow: 4px 4px 0 lighten($gray-900, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='black'],
+        &[data-border-shadow='border'][data-border-color='gray10'],
+        &[data-border-shadow='black'],
+        &[data-border-shadow='gray10'],
+        {
+            box-shadow: 4px 4px 0 lighten(#000, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='success'],
+        &[data-border-shadow='success'],
+        {
+            box-shadow: 4px 4px 0 lighten($success, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='danger'],
+        &[data-border-shadow='danger'],
+        &[data-border-shadow='border'][data-border-color='error'],
+        &[data-border-shadow='error'],
+        {
+            box-shadow: 4px 4px 0 lighten($danger, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='info'],
+        &[data-border-shadow='info'],
+        {
+            box-shadow: 4px 4px 0 lighten($info, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='warning'],
+        &[data-border-shadow='warning'],
+        &[data-border-shadow='border'][data-border-color='warn'],
+        &[data-border-shadow='warn'],
+        {
+            box-shadow: 4px 4px 0 lighten($warning, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='dark'],
+        &[data-border-shadow='dark'],
+        {
+            box-shadow: 4px 4px 0 lighten($dark, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='light'],
+        &[data-border-shadow='light'],
+        {
+            box-shadow: 4px 4px 0 lighten($light, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='primary'],
+        &[data-border-shadow='primary'],
+        {
+            box-shadow: 4px 4px 0 lighten($primary, 15%);
+        }
+        &[data-border-shadow='border'][data-border-color='secondary'],
+        &[data-border-shadow='secondary'],
+        {
+            box-shadow: 4px 4px 0 lighten($secondary, 15%);
+        }
+        @if map-has-key($custom-colors, 'branding') {
+            &[data-border-shadow='border'][data-border-color='branding'],
+            &[data-border-shadow='branding'],
+            {
+                box-shadow: 4px 4px 0 lighten(map-get($custom-colors, 'branding'), 15%);
+            }
+        }
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BorderStyle
+    // ===========
+    // Specify the style of the border to be used.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    &[data-border-style],
+    //&:has(.border_style),
+    {
+        // Map of valid CSS border style values.
+        $valid-border-styles: (
+            'none'
+            'hidden'
+            'dotted'
+            'dashed'
+            'solid'
+            'double'
+            'groove'
+            'ridge'
+            'inset'
+            'outset'
+            'initial'
+            'inherit'
+        );
+        @each $border-style, $i in $valid-border-styles {
+            &[data-border-style='#{$border-style}'],
+            {
+                border-style: #{$border-style} !important;
+            }
+        }
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // BorderWidth
+    // ===========
+    // Specify the width of the border
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    &[data-border-width],
+    //&:has( [data-border-width] ),
+    {
+        &[data-border-width='0'],
+        {
+            border-width: 0px !important;
+        }
+        &[data-border-width='1'],
+        {
+            border-width: 1px !important;
+        }
+        &[data-border-width='2'],
+        {
+            border-width: 2px !important;
+        }
+        &[data-border-width='3'],
+        {
+            border-width: 3px !important;
+        }
+        &[data-border-width='4'],
+        {
+            border-width: 4px !important;
+        }
+        &[data-border-width='5'],
+        {
+            border-width: 5px !important;
+        }
+    }
+
+
+}

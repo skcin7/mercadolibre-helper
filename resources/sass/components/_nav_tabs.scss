@@ -1,0 +1,119 @@
+$nav_tabs_border_color: $gray-700; // was #dee2e6
+$nav_tabs_border_width: 2px;
+
+.tabs_container,
+{
+    ul.nav-tabs,
+    {
+        border-bottom-width: $nav_tabs_border_width !important;
+        border-bottom-color: $nav_tabs_border_color !important;
+
+        li.nav-item {
+            margin-bottom: -$nav_tabs_border_width !important;
+
+            a.nav-link,
+            button.nav-link,
+            {
+                background-color: #fff !important;
+                border-top-color: lighten($nav_tabs_border_color, 25%);
+                border-left-color: lighten($nav_tabs_border_color, 25%);
+                border-right-color: lighten($nav_tabs_border_color, 25%);
+                border-bottom-color: $nav_tabs_border_color;
+
+                //&:hover,
+                //{
+                //    border-top-color: lighten($nav_tabs_border_color, 25%);
+                //    border-left-color: lighten($nav_tabs_border_color, 25%);
+                //    border-right-color: lighten($nav_tabs_border_color, 25%);
+                //    border-bottom-color: $nav_tabs_border_color;
+                //}
+
+                border-width: $nav_tabs_border_width !important;
+                color: #888;
+                font-size: 110% !important;
+                margin: 0rem 0.25rem !important; // Spacing between each tab.
+                //padding: 0.25rem 0.5rem !important; // Padding inside each tab.
+                padding: 0.5rem 0.75rem !important; // Padding inside each tab.
+                transition: none;
+
+                .badge {
+                    background-color: #888;
+                }
+
+                &:hover,
+                &.active,
+                {
+                    background-color: #fff !important;
+                    border-color: $nav_tabs_border_color $nav_tabs_border_color #fff !important;
+                    color: #000;
+
+                    .badge {
+                        background-color: #000;
+                    }
+                }
+            }
+        }
+
+    }
+
+    div.tab-content,
+    {
+        background-color: #FFF;
+        border-left: $nav_tabs_border_width solid $nav_tabs_border_color;
+        border-right: $nav_tabs_border_width solid $nav_tabs_border_color;
+        border-bottom: $nav_tabs_border_width solid $nav_tabs_border_color;
+        padding: 1rem;
+    }
+}
+
+//// custom tabs styles/appearance over-riding from Bootstrap
+//ul.nav-tabs,
+//{
+//    border-bottom-width: $nav_tabs_border_width !important;
+//    border-bottom-color: $nav_tabs_border_color !important;
+//
+//    li.nav-item {
+//        margin-bottom: -$nav_tabs_border_width !important;
+//
+//        a.nav-link,
+//        button.nav-link,
+//        {
+//            background-color: #fff !important;
+//            border-top-color: lighten($nav_tabs_border_color, 25%);
+//            border-left-color: lighten($nav_tabs_border_color, 25%);
+//            border-right-color: lighten($nav_tabs_border_color, 25%);
+//            border-bottom-color: $nav_tabs_border_color;
+//
+//            //&:hover,
+//            //{
+//            //    border-top-color: lighten($nav_tabs_border_color, 25%);
+//            //    border-left-color: lighten($nav_tabs_border_color, 25%);
+//            //    border-right-color: lighten($nav_tabs_border_color, 25%);
+//            //    border-bottom-color: $nav_tabs_border_color;
+//            //}
+//
+//            border-width: $nav_tabs_border_width !important;
+//            color: #888;
+//            font-size: 120% !important;
+//            margin: 0rem 0.5rem !important; // Spacing between each tab.
+//            padding: 0.5rem 1.0rem !important; // Padding inside each tab.
+//            transition: none;
+//
+//            .badge {
+//                background-color: #888;
+//            }
+//
+//            &:hover,
+//            &.active,
+//            {
+//                background-color: #fff !important;
+//                border-color: $nav_tabs_border_color $nav_tabs_border_color #fff !important;
+//                color: #000;
+//
+//                .badge {
+//                    background-color: #000;
+//                }
+//            }
+//        }
+//    }
+//}

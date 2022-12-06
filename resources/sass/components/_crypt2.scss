@@ -1,0 +1,213 @@
+.crypt2-container {
+    display: flex;
+    margin-bottom: 2rem;
+
+    // To align left/center/right, add the class to the crypt2 container.
+    &.crypt2-left {
+        justify-content: left;
+    }
+    &.crypt2-center {
+        justify-content: center;
+    }
+    &.crypt2-right {
+        justify-content: right;
+    }
+
+    &.crypt2-hide {
+        transition: all .5s;
+        opacity: 0;
+        visibility: hidden;
+        animation: crypt2hideMsgAlert 1s;
+    }
+
+    @keyframes crypt2hideMsgAlert {
+        0% {
+            opacity: 1;
+            transform: translateX(-20%);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    // Crypt3 message and all content goes in here.
+    .crypt2-message {
+        background: #fff;
+        border: 2px solid #888;
+        box-shadow: 4px 4px 0 lighten(#888, 25%);
+        display: flex;
+        flex-grow: 0;
+        flex-wrap: nowrap;
+        height: 100%;
+        min-height: 60px;
+
+        // .crypt2-message-icon
+        &-icon {
+            background: #888;
+            display: flex;
+            flex: 0;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.6rem;
+            margin: 0;
+            margin-left: -1px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+            i {
+                text-align: center;
+                width: 30px;
+
+                &:before {
+                    content: "\F12A";
+                    font-family: "Fontello";
+                    font-style: normal;
+                }
+            }
+        }
+
+        // .crypt2-message-content
+        &-content {
+            color: #000;
+            font-size: 1.1rem;
+            flex: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+
+            p {
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        // .crypt2-message-close
+        &-close {
+            color: lighten(#888, 20%);
+            display: flex;
+            flex: 0;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            position: relative;
+            top: 0;
+
+            &:hover {
+                color: darken(#888, 20%);
+                top: -2px;
+            }
+        }
+
+        &.crypt2-primary {
+            border: 2px solid #455870;
+            box-shadow: 4px 4px 0 lighten(#455870, 25%);
+
+            .crypt2-message-icon {
+                background: #455870;
+
+                i:before {
+                    content: "\F12A";
+                    font-family: "Fontello";
+                    font-style: normal;
+                }
+            }
+
+            .crypt2-message-content {
+                color: #455870;
+            }
+
+            .crypt2-message-close {
+                color: lighten(#455870, 20%);
+                &:hover {
+                    color: darken(#455870, 20%);
+                }
+            }
+        }
+
+        &.crypt2-danger {
+            border: 2px solid $danger;
+            box-shadow: 4px 4px 0 lighten($danger, 25%);
+
+            .crypt2-message-icon {
+                background: $danger;
+
+                i:before {
+                    content: "\E804";
+                    font-family: "Fontello";
+                    font-style: normal;
+                }
+            }
+
+            .crypt2-message-content {
+                color: $danger;
+            }
+
+            .crypt2-message-close {
+                color: lighten($danger, 20%);
+                &:hover {
+                    color: darken($danger, 20%);
+                }
+            }
+        }
+
+        &.crypt2-success {
+            border: 2px solid #47ae74;
+            box-shadow: 4px 4px 0 lighten(#47ae74, 25%);
+
+            .crypt2-message-icon {
+                background: #47ae74;
+
+                i:before {
+                    content: "\E803";
+                    font-family: "Fontello";
+                    font-style: normal;
+                }
+            }
+
+            .crypt2-message-content {
+                color: #47ae74;
+            }
+
+            .crypt2-message-close {
+                color: lighten(#47ae74, 20%);
+                &:hover {
+                    color: darken(#47ae74, 20%);
+                }
+            }
+        }
+
+        &.crypt2-warning {
+            border: 2px solid #ef974b;
+            box-shadow: 4px 4px 0 lighten(#ef974b, 25%);
+
+            .crypt2-message-icon {
+                background: #ef974b;
+
+                i:before {
+                    content: "\E814";
+                    font-family: "Fontello";
+                    font-style: normal;
+                }
+            }
+
+            .crypt2-message-content {
+                color: #ef974b;
+            }
+
+            .crypt2-message-close {
+                color: lighten(#ef974b, 20%);
+                &:hover {
+                    color: darken(#ef974b, 20%);
+                }
+            }
+        }
+    }
+}

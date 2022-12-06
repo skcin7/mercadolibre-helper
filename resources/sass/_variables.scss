@@ -1,0 +1,84 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+
+
+
+
+
+
+
+
+// Prefix for :root CSS variables
+$nsm_prefix:             nsm- !default;
+
+
+
+// Body
+$body-bg: #fff;
+
+// Typography
+$font-family-sans-serif:  "Open Sans", sans-serif;
+$font-family-monospace:   "Lucida Console", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-pixelated:   "EarlyGameboy", sans-serif;
+$font-family-pixelated2:  "RetroGaming", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+
+
+// Form Checks:
+$form-check-input-width: 1.5em;
+$form-check-input-border: 1px solid rgba(#000, .25);
+
+// Custom
+$enable-rounded: true;
+$enable-shadows: false;
+$black: #000;
+$white: #fff;
+
+
+
+
+
+//$breadcrumb-divider: quote("→");
+
+
+// Custom Application-Specific Colors Being Used In The App:
+//$custom-colors: (
+//    'branding': #ffe600,
+//);
+//$branding-color: #0066CC; // Depreciate
+
+
+$custom_colors: (
+    'branding': #ffe600,
+);
+
+
+
+// File: theme.scss
+// Override default BT variables:
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+);

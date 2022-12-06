@@ -1,0 +1,16 @@
+@mixin jump_up() {
+    position: relative;
+
+    &:hover {
+        animation: jump 0.2s;
+    }
+
+    @keyframes jump {
+        50% {
+            transform: translatey(-0.5rem);
+        }
+        to {
+            transform: translatey(0rem);
+        }
+    }
+}

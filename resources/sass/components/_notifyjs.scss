@@ -1,0 +1,73 @@
+.notifyjs-bootstrap-base {
+    background-color: #fff;
+    border-width: 2px;
+    border-style: solid;
+    font-weight: bold;
+    padding: 0.75rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    z-index: 1100;
+
+    [data-notify-text], [data-notify-html] {
+        vertical-align: middle;
+    }
+
+    &:before {
+        display: inline-block;
+        font-family: Fontello;
+        font-size: 22px;
+        vertical-align: middle;
+    }
+
+    &.notifyjs-bootstrap-success {
+        background-color: #DFF0D8;
+        border-color: #468847;
+        color: #468847;
+
+        &:before {
+            content: "\E80B";
+        }
+    }
+
+    //&.notifyjs-bootstrap-danger {
+    //    //background-color: lighten($danger, 45%);
+    //    background-color: #fff;
+    //    border-color: $danger;
+    //    box-shadow: 4px 4px 0 lighten($danger, 25%) !important;
+    //    color: $danger;
+    //
+    //    &:before {
+    //        content: "\e804";
+    //    }
+    //}
+
+    &.notifyjs-bootstrap-danger {
+        background-color: lighten($danger, 35%);
+        border-color: $danger;
+        color: darken($danger, 25%);
+
+        &:before {
+            content: "\E817";
+        }
+    }
+
+    &.notifyjs-bootstrap-warning {
+        background-color: lighten($warning, 35%);
+        border-color: $warning;
+        color: darken($warning, 25%);
+
+        &:before {
+            content: "\E812";
+        }
+    }
+
+    &.notifyjs-bootstrap-info {
+        background-color: #D9EDF7;
+        border-color: #BCE8F1;
+        color: #3A87AD;
+
+        &:before {
+            content: "\E814";
+        }
+    }
+}

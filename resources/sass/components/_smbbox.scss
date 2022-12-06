@@ -1,0 +1,136 @@
+@mixin smbbox_rivets() {
+    background-image:
+        url('../../assets/SMB3_Rivets/Rivet_6x6.gif'),
+        url('../../assets/SMB3_Rivets/Rivet_6x6.gif'),
+        url('../../assets/SMB3_Rivets/Rivet_6x6.gif'),
+        url('../../assets/SMB3_Rivets/Rivet_6x6.gif');
+    background-position:
+        top 2px left 2px,
+        top 2px right 4px,
+        bottom 4px left 2px,
+        bottom 4px right 4px;
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat;
+    background-size:
+        6px 6px,
+        6px 6px,
+        6px 6px,
+        6px 6px;
+}
+
+// Re-useable class to add the rivets to any element, without having to have the additional CSS code on the element itself from including the mixin.
+.smbbox_rivets,
+{
+    @include smbbox_rivets();
+}
+
+
+
+.smbbox,
+[data-smbbox]:not([data-smbbox='false']),
+{
+    // Styles that are shared with all Alertboxes:
+    //border: 2px solid transparent;
+    //margin-bottom: 1rem;
+
+
+    padding: 0.25rem 1rem;
+    position: relative;
+
+    @include smbbox_rivets();
+
+
+
+
+    border: 1px solid #000 !important;
+    border-radius: 3px !important;
+    color: #000;
+
+    //font-family: $font-family-pixelated;
+    ////font-size: 90% !important;
+    //letter-spacing: -2px;
+    //
+    //strong,
+    //{
+    //    color: #000;
+    //    font-size: 115% !important;
+    //}
+
+
+    &:not(&.smbbox_success, &.smbbox_danger, &.smbbox_warning, &.smbbox_info),
+    &.smbbox_default,
+    {
+        background-color: #FFF;
+        //box-shadow: inset -2px -2px #888;
+        box-shadow: inset -2px -2px #888;
+    }
+
+    &.smbbox_branding,
+    {
+        background-color: lighten(map-get($custom-colors, 'branding'), 60%);
+        box-shadow: inset -2px -2px map-get($custom-colors, 'branding');
+    }
+
+    &.smbbox_success,
+    {
+        background-color: lighten($success, 60%);
+        box-shadow: inset -2px -2px $success;
+    }
+
+    &.smbbox_danger,
+    {
+        background-color: lighten($danger, 40%);
+        box-shadow: inset -2px -2px $danger;
+    }
+
+    &.smbbox_warning,
+    {
+        background-color: lighten($warning, 30%);
+        box-shadow: inset -2px -2px $warning;
+    }
+
+    &.smbbox_info,
+    {
+        background-color: lighten($info, 40%);
+        box-shadow: inset -2px -2px $info;
+    }
+
+
+    // Whether the Alertbox can be closed or not using a close button inside the Alertbox.
+    &.smbbox_closeable,
+    &[smbbox_closeable]:not(&[smbbox_closeable='false']),
+    {
+        .smbbox_close,
+        {
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+            border: 0;
+            box-sizing: content-box;
+            color: #000;
+            height: 1em;
+            opacity: 0.5;
+            padding: 0.25em 0.25em;
+            position: absolute;
+            right: 0.5rem;
+            top: 0.5rem;
+            width: 1em;
+
+            &:hover,
+            {
+                color: #000;
+                opacity: 0.75;
+                text-decoration: none;
+            }
+        }
+    }
+    &:not(.smbbox_closeable),
+    {
+        .smbbox_close,
+        {
+            display: none;
+        }
+    }
+
+}
