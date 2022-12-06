@@ -10,6 +10,6 @@ class MyMigration extends Migration
      * Starting value to use for auto-incrementing columns.
      * @var integer
      */
-    public int $auto_increment_start_value = 1000;
+    public int $auto_increment_start_value = 1001;
 
 }

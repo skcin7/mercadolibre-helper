@@ -43,5 +43,15 @@
         "password": "aa",
         "is_mastermind": false,
         "is_admin": false
+    },
+
+
+    {
+        "name": "nick.victor",
+        "email": "nickvictorml@gmail.com",
+        "email_verified_at": null,
+        "password": "aa",
+        "is_mastermind": false,
+        "is_admin": false
     }
 ]
