@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "user",
+        "email": "user@mercadolibre-helper.development",
+        "email_verified_at": null,
+        "password": "aa",
+        "is_mastermind": false,
+        "is_admin": false
+    },
+    {
+        "id": 2,
+        "name": "admin",
+        "email": "admin@mercadolibre-helper.development",
+        "email_verified_at": null,
+        "password": "aa",
+        "is_mastermind": false,
+        "is_admin": true
+    },
+    {
+        "id": 3,
+        "name": "mastermind",
+        "email": "mastermind@mercadolibre-helper.development",
+        "email_verified_at": null,
+        "password": "aa",
+        "is_mastermind": true,
+        "is_admin": false
+    },
+    {
+        "id": 4,
+        "name": "dev",
+        "email": "dev@mercadolibre-helper.development",
+        "email_verified_at": null,
+        "password": "aa",
+        "is_mastermind": false,
+        "is_admin": false
+    },
+    {
+        "id": 5,
+        "name": "testing",
+        "email": "testing@mercadolibre-helper.development",
+        "email_verified_at": null,
+        "password": "aa",
+        "is_mastermind": false,
+        "is_admin": false
+    }
+]
