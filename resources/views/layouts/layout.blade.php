@@ -99,7 +99,7 @@
                 </header>
             @endif
 
-            <section id="page_content" data-bgscene="{!! (isset($bgscene) && is_string($bgscene) ? $bgscene : 'white') !!}">
+            <section id="page_content">
                 @hasSection('pageContent')
                     @yield('pageContent')
                 @else

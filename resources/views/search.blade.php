@@ -46,68 +46,92 @@
                 <form action="{{ route('web.search.find_listings') }}" id="find_matched_listings_form" method="POST">
                     @csrf
 
-                    <div class="form-group row mb-2">
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-prepend d-none d-md-flex">
-                                    <span class="input-group-text px-2">Mercado Libre Site<span class="text-danger">*</span></span>
-                                </div>
-                                <select class="form-control" name="mercadolibre_site_id" required>
-                                    <option value="">[Choose Mercado Libre Site]</option>
-                                    @foreach($mercadolibre_sites as $mercadolibre_site)
-                                        <option value="{{ $mercadolibre_site->getAttribute('id') }}" {{ ($mercadolibre_site->getAttribute('id') == $saved_search->getAttribute('mercadolibre_site_id') ? 'selected' : '') }}>{{ $mercadolibre_site->getAttribute('name') }} [ID: {{ $mercadolibre_site->getAttribute('id') }}]</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
+                    <fieldset class="fieldset fieldset-sm">
+                        <legend>Native Mercado Libre Search Controls</legend>
 
-                        <div class="col">
-                            <div class="input-group disabled">
-                                <div class="input-group-prepend d-none d-md-flex">
-                                    <span class="input-group-text px-2">Category</span>
+                        <div class="form-group row mb-2">
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend d-none d-md-flex">
+                                        <span class="input-group-text px-2">Mercado Libre Site<span class="text-danger">*</span></span>
+                                    </div>
+                                    <select class="form-control" name="mercadolibre_site_id" required>
+                                        <option value="">[Choose Mercado Libre Site]</option>
+                                        @foreach($mercadolibre_sites as $mercadolibre_site)
+                                            <option value="{{ $mercadolibre_site->getAttribute('id') }}" {{ ($mercadolibre_site->getAttribute('id') == $saved_search->getAttribute('mercadolibre_site_id') ? 'selected' : '') }}>{{ $mercadolibre_site->getAttribute('name') }} [ID: {{ $mercadolibre_site->getAttribute('id') }}]</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                <select class="form-control" name="mercadolibre_category_id" disabled>
-                                    <option value="">[Any Category]</option>
-                                    <option value="MLB186456" selected>Video Games [ID: MLB186456]</option>
-                                </select>
                             </div>
-                        </div>
 
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-prepend d-none d-md-flex">
-                                    <span class="input-group-text px-2">Keywords</span>
+                            <div class="col">
+                                <div class="input-group disabled">
+                                    <div class="input-group-prepend d-none d-md-flex">
+                                        <span class="input-group-text px-2">Category</span>
+                                    </div>
+                                    <select class="form-control" name="mercadolibre_category_id" disabled>
+                                        <option value="">[Any Category]</option>
+                                        <option value="MLB186456" selected>Video Games [ID: MLB186456]</option>
+                                    </select>
                                 </div>
-                                <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" maxlength="255" name="keywords" placeholder="[Keywords...]" type="text" value="{{ $saved_search->getAttribute('keywords') }}"/>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="form-group row mb-2">
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-prepend d-none d-md-flex">
-                                    <label class="input-group-text px-2 py-1 lh-1 d-flex flex-column cursor_pointer" for="title_must_contain_input">
-                                        <div>Title<u class="mx-1">Must</u>Contain</div>
-                                        <div class="small">These Words</div>
-                                    </label>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend d-none d-md-flex">
+                                        <span class="input-group-text px-2">Keywords</span>
+                                    </div>
+                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" maxlength="255" name="keywords" placeholder="[Keywords...]" type="text" value="{{ $saved_search->getAttribute('keywords') }}"/>
                                 </div>
-                                <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_contain_input" maxlength="255" name="title_must_contain" placeholder="[Title Must Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_contain') }}"/>
                             </div>
                         </div>
+                    </fieldset>
 
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-prepend d-none d-md-flex">
-                                    <label class="input-group-text px-2 py-1 lh-1 d-flex flex-column cursor_pointer" for="title_must_not_contain_input">
-                                        <div>Title<u class="mx-1">Must Not</u>Contain</div>
-                                        <div class="small">These Words</div>
-                                    </label>
+
+                    <fieldset class="fieldset fieldset-sm">
+                        <legend>Additional Search Controls (We Process Locally, From Native ML Search Results)</legend>
+
+                        <div class="form-group row mb-2">
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend d-none d-md-flex">
+                                        <label class="input-group-text px-2 py-1 lh-1 d-flex flex-column cursor_pointer" for="title_must_contain_input">
+                                            <div>Title<u class="mx-1">Must</u>Contain</div>
+                                            <div class="small">Words/Phrases</div>
+                                        </label>
+                                    </div>
+                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_contain_input" maxlength="255" name="title_must_contain" placeholder="[Title Must Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_contain') }}"/>
                                 </div>
-                                <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_not_contain_input" maxlength="255" name="title_must_not_contain" placeholder="[Title Must Not Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_not_contain') }}"/>
+                                <div class="small lh-sm">
+                                    <div>The title MUST contain all of these words/phrases.</div>
+                                    <ul class="list-unstyled mb-0 ps-3">
+                                        <li>Use <code>,</code> (comma) to separate multiple words/phrases that all must be matched.</li>
+                                        <li>Use <code>|</code> (pipe) within a single word/phrase to specify that at least one within that set must be matched.</li>
+                                        <li><strong>Example:</strong> <code>Game Boy|Gameboy,Kid Icarus</code> - Must match ("Game Boy" OR "Gameboy") AND must match "Kid Icarus"</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend d-none d-md-flex">
+                                        <label class="input-group-text px-2 py-1 lh-1 d-flex flex-column cursor_pointer" for="title_must_not_contain_input">
+                                            <div>Title<u class="mx-1">Must Not</u>Contain</div>
+                                            <div class="small">Words/Phrases</div>
+                                        </label>
+                                    </div>
+                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_not_contain_input" maxlength="255" name="title_must_not_contain" placeholder="[Title Must Not Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_not_contain') }}"/>
+                                </div>
+                                <div class="small lh-sm">
+                                    <div>The title MUST NOT contain any of these words/phrases.</div>
+                                    <ul class="list-unstyled mb-0 ps-3">
+                                        <li>Use <code>,</code> (comma) to separate multiple words/phrases that must not be matched.</li>
+                                        <li><strong>Example:</strong> <code>3DS,Uprising</code> - If you're searching for Kid Icarus for Game Boy or NES, this is a good way to filter out listings for the 3DS game.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </fieldset>
 
                     <div class="form-group row mb-0">
                         <div class="col-auto">

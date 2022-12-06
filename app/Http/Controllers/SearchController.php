@@ -74,11 +74,11 @@ class SearchController extends Controller
 
         // At this point the saved search will either be a new one, or an existing one.
 
-        $saved_search->setAttribute('mercadolibre_site_id', $request->input('mercadolibre_site_id'));
-        $saved_search->setAttribute('mercadolibre_category_id', $request->input('mercadolibre_category_id'));
-        $saved_search->setAttribute('keywords', $request->input('keywords'));
-        $saved_search->setAttribute('title_must_contain', $request->input('title_must_contain'));
-        $saved_search->setAttribute('title_must_not_contain', $request->input('title_must_not_contain'));
+        $saved_search->setAttribute('mercadolibre_site_id', (string)$request->input('mercadolibre_site_id'));
+        $saved_search->setAttribute('mercadolibre_category_id', (string)$request->input('mercadolibre_category_id'));
+        $saved_search->setAttribute('keywords', (string)$request->input('keywords'));
+        $saved_search->setAttribute('title_must_contain', (string)$request->input('title_must_contain'));
+        $saved_search->setAttribute('title_must_not_contain', (string)$request->input('title_must_not_contain'));
 
 //        $per_page = (int)$request->input('per_page', 50);
 //        $current_page = (int)$request->input('current_page', 0);

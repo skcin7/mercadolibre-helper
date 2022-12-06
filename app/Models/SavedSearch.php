@@ -83,13 +83,72 @@ class SavedSearch extends Model
 
         $matched_listings_api_response = json_decode($api_response_contents, true);
 
+        // Filtered results (with additional searching done locally) is stored in this array.
+        $matched_listings_api_response['results_filtered'] = [];
+
+
+
+        // The title MUST contain all of the following words/phrases in this list.
+        // Each word/phrase to make sure it is included is separated by a comma.
+        // Furthermore, individual words/phrases may be separated by a '|' pipe character, to specify that any of the words/phrases in that group must be matched.
+        if(strlen(trim($this->getAttribute('title_must_contain'))) > 0) {
+            $title_must_contain = explode(",", trim($this->getAttribute('title_must_contain')));
+        }
+        else {
+            $title_must_contain = [];
+        }
+
+
+
+        // The title may NOT contain any of the words/phrases in this list. Each one to check is separated by a comma.
+        if(strlen(trim($this->getAttribute('title_must_not_contain'))) > 0) {
+            $title_must_not_contain = explode(",", trim($this->getAttribute('title_must_not_contain')));
+        }
+        else {
+            $title_must_not_contain = [];
+        }
+
 
 //        $final_matched_listings = [];
-//        foreach(json_decode($api_response_contents, true) as $current_found_matched_listing) {
-//            // TODO - additional search to do exact phrases, exclude keywords
-//
-//            $final_matched_listings[] = $current_found_matched_listing;
-//        }
+//        foreach($matched_listings_api_response['results'] as $current_found_matched_result) {
+        for($i = 0; $i < count($matched_listings_api_response['results']); $i++) {
+            // TODO - additional search to do exact phrases, exclude keywords
+
+            $all_additional_search_filters_pass = true;
+
+
+
+            foreach($title_must_contain as $current_title_must_contain) {
+                $this_word_or_phrase_is_matched = false;
+                $all_current_title_must_contain_parts = explode("|", trim($current_title_must_contain));
+                foreach($all_current_title_must_contain_parts as $this_optional_part) {
+
+                    if(str_contains($matched_listings_api_response['results'][$i]['title'], trim($this_optional_part))) {
+                        $this_word_or_phrase_is_matched = true;
+                    }
+
+                }
+
+                if(!$this_word_or_phrase_is_matched) {
+                    $all_additional_search_filters_pass = false;
+                }
+            }
+
+
+            foreach($title_must_not_contain as $current_title_must_not_contain) {
+                if(str_contains($matched_listings_api_response['results'][$i]['title'], trim($current_title_must_not_contain))) {
+                    $all_additional_search_filters_pass = false;
+                }
+            }
+
+
+
+            if($all_additional_search_filters_pass) {
+                $matched_listings_api_response['results_filtered'][] = $matched_listings_api_response['results'][$i];
+            }
+
+            $matched_listings_api_response['results'][$i]["_passes_additional_filters"] = $all_additional_search_filters_pass;
+        }
 
         if($this->exists) {
             $this->setAttribute('last_searched_at', now());

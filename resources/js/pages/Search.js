@@ -258,10 +258,10 @@ class Search extends Page
 
                     let current_matched_listings = _this.getData('matched_listings');
 
-                    for(let i = 0; i < response.data.resource.results.length; i++) {
-                        $('#matched_listings_list').append(_this.generateMatchedListingElement(response.data.resource.results[i]));
+                    for(let i = 0; i < response.data.resource.results_filtered.length; i++) {
+                        $('#matched_listings_list').append(_this.generateMatchedListingElement(response.data.resource.results_filtered[i]));
 
-                        current_matched_listings.push(response.data.resource.results[i]);
+                        current_matched_listings.push(response.data.resource.results_filtered[i]);
                     }
 
                     _this.setData('matched_listings', current_matched_listings);
@@ -365,8 +365,16 @@ class Search extends Page
                     )
                     .append(
                         $('<ul/>')
-                            .addClass('list-unstyled mb-0')
-
+                            .addClass('list-unstyled mb-0 lh-sm smaller')
+                            .append(
+                                $('<li/>')
+                                    // .html('Price: R$ ' + (matched_listing_data.hasOwnProperty('price') ? matched_listing_data.price : 'Price Unknown') )
+                                    .html('<strong>Price:</strong> ' + (matched_listing_data.hasOwnProperty('prices') ? matched_listing_data.prices.prices[0].amount + " " + matched_listing_data.prices.prices[0].currency_id : 'Price Unknown') )
+                            )
+                            .append(
+                                $('<li/>')
+                                    .html('<strong>Quantity:</strong> ' + (matched_listing_data.hasOwnProperty('available_quantity') ? matched_listing_data.available_quantity : 'Available Qty Unknown') + ' Available, (Sold: ' + (matched_listing_data.hasOwnProperty('sold_quantity') ? matched_listing_data.sold_quantity : 'Sold Qty Unknown') + ')' )
+                            )
                     )
             )
         ;
