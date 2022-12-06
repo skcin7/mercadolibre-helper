@@ -70,9 +70,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'account'], function() {
     Route::match(['get', 'post'], 'notification_channels', [AccountController::class, 'notificationChannels'])->name('web.account.notification_channels');
 });
 
-Route::group(['prefix' => 'mercadolibre'], function() {
-    Route::get('sites', [MercadoLibreController::class, 'sites'])->name('web.mercadolibre.sites');
-});
+//Route::group(['prefix' => 'mercadolibre'], function() {
+//    Route::get('sites', [MercadoLibreController::class, 'sites'])->name('web.mercadolibre.sites');
+//});
 
 //Route::group(['prefix' => 'saved_searches'], function() {
 //    Route::get('/', [SavedSearchesController::class, 'index'])->name('web.saved_searches');

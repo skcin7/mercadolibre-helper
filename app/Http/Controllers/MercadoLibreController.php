@@ -27,7 +27,7 @@ class MercadoLibreController extends Controller
      */
     public function sites(Request $request)
     {
-        MercadoLibreSite::getSitesFromMercadoLibre();
+//        MercadoLibreSite::getSitesFromMercadoLibre();
 
 
 
