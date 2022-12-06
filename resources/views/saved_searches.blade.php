@@ -94,6 +94,10 @@
             <div class="alert alert-warning">No Saved Searches</div>
         @endif
 
+        <div class="mb-3">
+            <a class="btn btn-light px-2" href="{{ route('web.search') }}"><i class="icon-magic-wand"></i>New Search</a>
+        </div>
+
 
     </div>
 @endsection
