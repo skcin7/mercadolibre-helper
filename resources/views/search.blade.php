@@ -5,21 +5,18 @@
 @push('pageScripts')
     <script type="text/javascript">
         let _pageData = {
-            "saved_search": {
-                "id": {!! $saved_search->getAttribute('id') !!},
+            'saved_search': {
+                "id": {!! $saved_search->exists ? $saved_search->getAttribute('id') : 'null' !!},
                 "exists": Boolean({!! $saved_search->exists ? 'true' : 'false' !!}),
-                "mercadolibre_site_id": String({!! $saved_search->getAttribute('mercadolibre_site_id') !!}),
-                "mercadolibre_category_id": String({!! $saved_search->getAttribute('mercadolibre_category_id') !!}),
-                "keywords": String({!! $saved_search->getAttribute('keywords') !!}),
-                "title_must_contain": {!! $saved_search->getAttribute('title_must_contain') !!},
-                "is_enabled": Boolean({!! $saved_search->getAttribute('is_enabled') ? 'true' : 'false' !!}),
+                "mercadolibre_site_id": String("{!! $saved_search->getAttribute('mercadolibre_site_id') !!}"),
+                "mercadolibre_category_id": String("{!! $saved_search->getAttribute('mercadolibre_category_id') !!}"),
+                "keywords": String("{!! $saved_search->getAttribute('keywords') !!}"),
+                "title_must_contain": String("{!! $saved_search->getAttribute('title_must_contain') !!}"),
+                "title_must_not_contain": String("{!! $saved_search->getAttribute('title_must_not_contain') !!}"),
+                "system_group": String("{!! $saved_search->getAttribute('system_group') !!}"),
+                "automatic_searching_enabled": Boolean({!! $saved_search->getAttribute('automatic_searching_enabled') ? 'true' : 'false' !!}),
                 "notifications_enabled": Boolean({!! $saved_search->getAttribute('notifications_enabled') ? 'true' : 'false' !!}),
             },
-
-            // 'viewmode': viewmode,
-            // 'showing_advanced_search': showing_advanced_search,
-            // 'inventory_items': inventory_items,
-            {{--'trash': Boolean({{ (isset($trash) && ($trash) ? 'true' : 'false') }}),--}}
         };
     </script>
 @endpush
@@ -27,18 +24,25 @@
 @section('pageContent')
     <div class="container-fluid px-2">
 
-        <div class="d-flex flex-row align-items-center justify-content-center">
-            <h1 class="d-inline my-0">{{ $saved_search->exists ? 'Existing' : 'New' }} Search</h1>
+{{--        <div class="d-flex flex-row align-items-center justify-content-center">--}}
+{{--            <h1 class="d-inline my-0">{{ $saved_search->exists ? 'Existing' : 'New' }} Search</h1>--}}
 
-            <button class="btn btn-primary ms-2" type="button" data-event-action="save_saved_search"><i class="icon-floppy-disk"></i>{{ ($saved_search->exists ? 'Update Saved Search' : 'Save This Search') }}</button>
-            @if($saved_search->exists)
-                <button class="btn btn-danger ms-2" type="button" data-event-action="delete_saved_search"><i class="icon-trash"></i>Delete Search</button>
-            @endif
-        </div>
+{{--            <button class="btn btn-primary ms-2" type="button" data-event-action="create_or_update_saved_search"><i class="icon-floppy-disk"></i>{{ ($saved_search->exists ? 'Update' : 'Create Saved Search') }}</button>--}}
+{{--            @if($saved_search->exists)--}}
+{{--                <button class="btn btn-danger ms-2" type="button" data-event-action="delete_saved_search"><i class="icon-trash"></i>Delete Search</button>--}}
+{{--            @endif--}}
+{{--        </div>--}}
 
         <div id="search_sticky_header">
             <fieldset class="fieldset" id="input_parameters_fieldset">
-                <legend class="biggest text-center">{{ $saved_search->exists ? 'Existing' : 'New' }} Search</legend>
+                <legend class="text-center">
+                    <span class="biggest">{{ $saved_search->exists ? 'Existing Saved' : 'New' }} Search</span>
+
+                    <button class="btn btn-primary btn-sm ms-1" type="button" data-event-action="create_or_update_saved_search"><i class="icon-floppy-disk"></i>{{ ($saved_search->exists ? 'Save Changes' : 'Save This Search') }}</button>
+                    @if($saved_search->exists)
+                        <button class="btn btn-danger btn-sm ms-1" type="button" data-event-action="delete_saved_search"><i class="icon-trash"></i>Delete Saved Search</button>
+                    @endif
+                </legend>
                 <form action="{{ route('web.search.find_listings') }}" id="find_matched_listings_form" method="POST">
                     @csrf
 
@@ -88,14 +92,26 @@
                                         <div class="small">These Words</div>
                                     </label>
                                 </div>
-                                <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_contain_input" maxlength="255" name="title_must_contain" placeholder="[Title Must Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_have') }}"/>
+                                <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_contain_input" maxlength="255" name="title_must_contain" placeholder="[Title Must Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_contain') }}"/>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="input-group-prepend d-none d-md-flex">
+                                    <label class="input-group-text px-2 py-1 lh-1 d-flex flex-column cursor_pointer" for="title_must_not_contain_input">
+                                        <div>Title<u class="mx-1">Must Not</u>Contain</div>
+                                        <div class="small">These Words</div>
+                                    </label>
+                                </div>
+                                <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_not_contain_input" maxlength="255" name="title_must_not_contain" placeholder="[Title Must Not Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_not_contain') }}"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group row mb-0">
                         <div class="col-auto">
-                            <button class="btn btn-primary" type="submit" data-event-action="find_matched_listings">Find Matched Listings</button>
+                            <button class="btn btn-primary" type="button" data-event-action="find_matched_listings">Find Mercado Libre Listings</button>
                         </div>
 
                         {{--                    <div class="col-auto">--}}
@@ -109,10 +125,16 @@
             </fieldset>
         </div>
 
-        <fieldset class="fieldset border" data-border-color="branding" data-border-width="2" data-box-shadow="border">
+        <fieldset class="fieldset border" id="matched_listings_fieldset" data-is-started="false" data-is-finished="false" data-is-loading="false" data-total-results="" data-offset="0" data-border-color="branding" data-border-width="2" data-box-shadow="border">
             <legend>Matched Listings</legend>
 
             <ul class="list-unstyled" id="matched_listings_list"></ul>
+
+            <div id="matched_listings_loadmore">
+                <div id="matched_listings_loadmore__allresultsloaded">All Results Loaded.</div>
+                <div id="matched_listings_loadmore__loadmore">Load More</div>
+                <div id="matched_listings_loadmore__loading"><i class="icon-spin1 animate-spin"></i>Loading...</div>
+            </div>
         </fieldset>
 
 

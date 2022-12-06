@@ -1,6 +1,6 @@
 <div class="p-2" id="flash_messages_container">
     @if(Session::has('flash_message'))
-        <div class="alert alert-{{ isset(Session::get('flash_message')['type']) ? Session::get('flash_message')['type'] : 'default' }} d-inline-block position-relative py-3 pe-5 mb-0">
+        <div class="alert alert-{{ isset(Session::get('flash_message')['type']) ? Session::get('flash_message')['type'] : 'default' }} bigger d-inline-block position-relative py-3 pe-5 mb-0">
 {{--            <button class="smbbox_close" title="Close" onclick='((event) => { event.parentNode.remove(); })(this);'></button>--}}
 
             <button class="btn-close position-absolute top-0 right-0 mt-2 me-2" type="button" data-bs-dismiss="alert" aria-label="Close"></button>

@@ -18,6 +18,7 @@ try {
     // window.knockout = require('knockout');
 
     window.bootstrap = require('bootstrap');
+    require('./lib/jquery.appear');
     require('./lib/jquery.autosize');
     require('./lib/jquery.notify');
     require('./lib/jquery.scrollup');
@@ -162,17 +163,20 @@ window.notAnotherWebApplication = {};
 
     app.loadApp = function(config = {}) {
 
-        if(config.hasOwnProperty('initPageManager') && UtilTypes.isBoolean(config.initPageManager) && config.initPageManager) {
+        console.log('Load App Config');
+        console.log(config);
+
+        if(config.hasOwnProperty('initCurrentPage') && UtilTypes.isBoolean(config.initCurrentPage) && config.initCurrentPage) {
             console.log(' -- loadApp: Initializing Current Page...');
-            let initPageManagerData = (config.hasOwnProperty('initPageManagerData') && UtilTypes.isObject(config.initPageManagerData) ? config.initPageManagerData : {});
-            getComponent("PageManager").initCurrentPage(initPageManagerData);
+            let initCurrentPageData = (config.hasOwnProperty('initCurrentPageData') && UtilTypes.isObject(config.initCurrentPageData) ? config.initCurrentPageData : {});
+            getComponent("PageManager").initCurrentPage(initCurrentPageData);
         }
 
-        // if(config.hasOwnProperty('initPageManager') && UtilTypes.isBoolean(config.initPageManager) && config.initPageManager) {
+        // if(config.hasOwnProperty('initCurrentPage') && UtilTypes.isBoolean(config.initCurrentPage) && config.initCurrentPage) {
         //     let pageData = (config.hasOwnProperty('_pageData') && UtilTypes.isObject(config._pageData) ? config._pageData : {});
         // }
         //
-        // if(config.hasOwnProperty('initPageManager')) {
+        // if(config.hasOwnProperty('initCurrentPage')) {
         //     let pageData = (config.hasOwnProperty('_pageData') && UtilTypes.isObject(config._pageData) ? config._pageData : {});
         // }
 

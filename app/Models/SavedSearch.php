@@ -25,12 +25,35 @@ class SavedSearch extends Model
         'keywords' => "",
         'mercadolibre_site_id' => "MLB",
         'mercadolibre_category_id' => "MLB186456",
+        'title_must_contain' => "",
+        'title_must_not_contain' => "",
+        'system_group' => "",
+        'automatic_searching_enabled' => true,
+        'alerts_enabled' => true,
+        'last_searched_at' => null,
     ];
 
-    public static function getCount()
-    {
-        return SavedSearch::query()->count();
-    }
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'keywords' => "string",
+        'mercadolibre_site_id' => "string",
+        'mercadolibre_category_id' => "string",
+        'title_must_contain' => "string",
+        'title_must_not_contain' => "string",
+        'system_group' => "string",
+        'automatic_searching_enabled' => "boolean",
+        'alerts_enabled' => "boolean",
+        'last_searched_at' => "datetime",
+    ];
+
+//    public static function getCount()
+//    {
+//        return SavedSearch::query()->count();
+//    }
 
     /**
      * The user that is managing this saved search.

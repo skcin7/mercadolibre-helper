@@ -158,12 +158,14 @@
                         "name": "PageManager",
                         "enabled": true,
                         "config": {
-                            'mode': 'History',
+                            // 'mode': 'History',
                             'mountTo': '#page_content',
-                            'pages': [
-                                'MercadoLibreApi',
-                                'Welcome',
-                            ],
+                            // 'pages': [
+                            //     'MercadoLibreApi',
+                            //     'Welcome',
+                            // ],
+                            // 'initCurrentPage': false,
+                            // 'initCurrentPageData': (typeof _pageData === 'undefined' || _pageData === null ? {} : _pageData),
                         },
                     },
                     {
@@ -172,8 +174,8 @@
                     },
                 ],
             }).loadApp({
-                    'initPageManager': true,
-                    'initPageManagerData': (typeof _pageData === 'undefined' || _pageData === null ? {} : _pageData),
+                    'initCurrentPage': true,
+                    'initCurrentPageData': (typeof _pageData === 'undefined' || _pageData === null ? {} : _pageData),
                 });
         </script>
         <!--!END: Scripts-->

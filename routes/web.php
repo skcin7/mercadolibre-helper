@@ -37,7 +37,10 @@ Route::get('terms', [WelcomeController::class, 'terms'])->name('web.terms');
 Route::get('privacy', [WelcomeController::class, 'privacy'])->name('web.privacy');
 
 Route::get('search/{id?}', [SearchController::class, 'index'])->name('web.search');
-Route::post('search/find_listings', [SearchController::class, 'findListings'])->name('web.search.find_listings');
+Route::post('search/find_matched_listings', [SearchController::class, 'findMatchedListings'])->name('web.search.find_listings');
+Route::post('search', [SearchController::class, 'create'])->name('web.search.create');
+Route::put('search/{id}', [SearchController::class, 'update'])->name('web.search.update');
+Route::delete('search/{id}', [SearchController::class, 'delete'])->name('web.search.delete');
 
 
 /*  _         _   _                _   _           _   _

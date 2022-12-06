@@ -21,10 +21,14 @@ class WelcomeController extends Controller
 {
     /**
      * @param Request $request
-     * @return Response|Application|ResponseFactory
+     * @return Application|ResponseFactory|RedirectResponse|Response
      */
-    public function welcome(Request $request): Response|Application|ResponseFactory
+    public function welcome(Request $request): Application|ResponseFactory|RedirectResponse|Response
     {
+//        if($request->user()) {
+//            return redirect()->route('web.account');
+//        }
+
         return $this->respondWithBladeView('welcome', [
             //
         ], ['title_suffix' => null]);

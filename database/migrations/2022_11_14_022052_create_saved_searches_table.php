@@ -21,9 +21,13 @@ return new class extends MyMigration
             $table->string('mercadolibre_site_id', 4);
             $table->string('mercadolibre_category_id', 255);
 
-            $table->string('include_keywords', 255);
-            $table->string('exclude_keywords', 255);
-            $table->boolean('is_enabled')->default(true);
+            $table->string('title_must_contain', 255);
+            $table->string('title_must_not_contain', 255);
+
+//            $table->string('include_keywords', 255);
+//            $table->string('exclude_keywords', 255);
+            $table->string('system_group', 255);
+            $table->boolean('automatic_searching_enabled')->default(true);
             $table->boolean('alerts_enabled')->default(true);
             $table->timestamp('last_searched_at')->nullable();
             $table->timestamps();

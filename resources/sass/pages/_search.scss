@@ -7,6 +7,7 @@
         top: 0;
         z-index: 10;
     }
+
     #input_parameters_fieldset,
     {
         background-image: url("../../assets/BackgroundDots_4x4.gif");
@@ -14,65 +15,200 @@
         box-shadow: 4px 4px 0 lighten($gray-600, 25%);
     }
 
-    #matched_listings_list,
+    #matched_listings_fieldset,
     {
-        //border: 1px solid $gray-600;
-        font-size: 140%;
-        margin: 0;
-        padding: 0;
-
-        &:empty:after,
+        #matched_listings_list:empty:after,
         {
             color: #888;
-            content: 'Matched listings that have been found are shown here.';
             font-style: italic;
         }
 
-
-
-        li.matched_listing,
+        &[data-is-started='false'],
         {
-            border-bottom: 1px solid $gray-600;
-            display: flex;
-            flex-direction: row;
-            padding: 0.5rem;
-
-            &:nth-of-type(even) {
-                background-color: #f2f2f2;
-            }
-
-            .matched_listing_thumbnail,
+            #matched_listings_list:empty:after,
             {
-                align-items: center;
-                background-color: #fff;
-                border: 2px solid $gray-500;
-                box-shadow: 4px 4px 0 lighten($gray-500, 15%);
-                cursor: pointer;
-                display: flex;
-                justify-content: center;
-                height: 100px;
-                min-height: 100px;
-                min-width: 100px;
-                width: 100px;
+                content: 'Matched listings that have been found are shown here.';
+            }
+        }
 
-                &[data-event-action]:hover,
-                {
-                    border-color: map-get($custom-colors, 'branding');
-                    box-shadow: 4px 4px 0 lighten(map-get($custom-colors, 'branding'), 25%);
-                }
+        &[data-is-started='true'][data-total-listings='0'],
+        {
+            #matched_listings_list:empty:after,
+            {
+                content: 'No matched listings found!';
+                //display: block;
+                //text-align: center;
+            }
+        }
 
-                & img,
-                {
-                    max-height: 100%;
-                    max-width: 100%;
-                    width: 100%;
-                }
+
+        #matched_listings_list,
+        {
+            //border: 1px solid $gray-600;
+            font-size: 140%;
+            //margin: 0;
+            margin: 1rem 0rem;
+            padding: 0;
+
+            &:empty:after,
+            {
+                color: #888;
+                content: 'Matched listings that have been found are shown here.';
+                font-style: italic;
             }
 
+            //&[data-is-loading='true']:empty:after,
+            //{
+            //    content: 'Loading...' !important;
+            //}
+
+
+
+            li.matched_listing,
+            {
+                border-bottom: 1px solid $gray-600;
+                display: flex;
+                flex-direction: row;
+                padding: 0.5rem;
+
+                &:nth-of-type(even) {
+                    background-color: #f2f2f2;
+                }
+
+                .matched_listing_thumbnail,
+                {
+                    align-items: center;
+                    background-color: #fff;
+                    border: 2px solid $gray-500;
+                    box-shadow: 4px 4px 0 lighten($gray-500, 15%);
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    height: 100px;
+                    min-height: 100px;
+                    min-width: 100px;
+                    width: 100px;
+
+                    &[data-event-action]:hover,
+                    {
+                        border-color: map-get($custom-colors, 'branding');
+                        box-shadow: 4px 4px 0 lighten(map-get($custom-colors, 'branding'), 25%);
+                    }
+
+                    & img,
+                    {
+                        max-height: 100%;
+                        max-width: 100%;
+                        width: 100%;
+                    }
+                }
+
+
+
+            }
 
 
         }
 
 
+        &[data-is-started='false'],
+        {
+            #matched_listings_loadmore,
+            {
+                display: none;
+            }
+        }
+
+        &[data-is-started='true'],
+        {
+            &[data-is-loading='true'],
+            {
+                #matched_listings_loadmore,
+                {
+                    #matched_listings_loadmore__loadmore,
+                    {
+                        display: none;
+                    }
+                    #matched_listings_loadmore__loading,
+                    {
+                        display: block;
+                    }
+                }
+            }
+
+            &:not([data-is-loading='true']),
+            {
+                #matched_listings_loadmore,
+                {
+                    #matched_listings_loadmore__loadmore,
+                    {
+                        display: block;
+                    }
+                    #matched_listings_loadmore__loading,
+                    {
+                        display: none;
+                    }
+                }
+            }
+
+
+
+            &[data-is-finished='false'],
+            {
+                #matched_listings_loadmore,
+                {
+                    #matched_listings_loadmore__allresultsloaded,
+                    {
+                        display: none;
+                    }
+                }
+            }
+
+            &[data-is-finished='true'],
+            {
+                #matched_listings_loadmore,
+                {
+                    #matched_listings_loadmore__allresultsloaded,
+                    {
+                        display: block;
+                    }
+                    #matched_listings_loadmore__loadmore,
+                    #matched_listings_loadmore__loading,
+                    {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+
+
+
+        #matched_listings_loadmore,
+        {
+            background: linear-gradient(0deg, #DDD, #FFF);
+            //background-color: #FFF;
+            border: 2px solid #888;
+            font-size: 120%;
+            margin: 3rem 4rem;
+            padding: 0rem;
+            text-align: center;
+
+            #matched_listings_loadmore__allresultsloaded,
+            #matched_listings_loadmore__loadmore,
+            #matched_listings_loadmore__loading,
+            {
+                padding: 0.5rem;
+            }
+
+            #matched_listings_loadmore__loadmore,
+            {
+                cursor: pointer;
+            }
+
+        }
+
     }
+
+
 }
