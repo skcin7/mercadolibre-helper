@@ -95,7 +95,7 @@
         @endif
 
         <div class="mb-3">
-            <a class="btn btn-light px-2" href="{{ route('web.search') }}"><i class="icon-magic-wand"></i>New Search</a>
+            <a class="btn btn-secondary border-dark px-2 bigger" href="{{ route('web.search') }}"><i class="icon-magic-wand"></i>New Search</a>
         </div>
 
 
