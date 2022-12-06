@@ -23,21 +23,18 @@ class UsersSeeder extends Seeder
         // Loop through the countries found and either create or insert them based on if it's already in the database or not.
         foreach($seeder_data as $this_unprocessed_seeder_data) {
 
-            // Insert the final processed seed data into the database:
-            DB::table('users')
-                ->insert([
-                    'id' => $this_unprocessed_seeder_data['id'],
-                    'name' => $this_unprocessed_seeder_data['name'],
-                    'email' => $this_unprocessed_seeder_data['email'],
-                    'email_verified_at' => null,
-                    'password' => Hash::make($this_unprocessed_seeder_data['password']),
-                    'remember_token' => null,
-                    'is_mastermind' => (bool)$this_unprocessed_seeder_data['is_mastermind'],
-                    'is_admin' => (bool)$this_unprocessed_seeder_data['is_admin'],
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ])
-            ;
+            $user = new User();
+            $user->setAttribute('id', $this_unprocessed_seeder_data['id']);
+            $user->setAttribute('name', $this_unprocessed_seeder_data['name']);
+            $user->setAttribute('email', $this_unprocessed_seeder_data['email']);
+            $user->setAttribute('email_verified_at', null);
+            $user->setAttribute('password', Hash::make($this_unprocessed_seeder_data['password']));
+            $user->setAttribute('remember_token', null);
+            $user->setAttribute('is_mastermind', (bool)$this_unprocessed_seeder_data['is_mastermind']);
+            $user->setAttribute('is_admin', (bool)$this_unprocessed_seeder_data['is_admin']);
+            $user->save();
+
+
         }
 
 
