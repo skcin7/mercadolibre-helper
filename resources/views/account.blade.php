@@ -18,6 +18,9 @@
             <li>
                 <a class="hover_up bigger" href="{{ route('web.account.notification_channels') }}">Notification Channels</a>
             </li>
+            <li>
+                <a class="hover_up bigger" href="#" data-event-action="handle_logout">Logout</a>
+            </li>
         </ul>
 
 

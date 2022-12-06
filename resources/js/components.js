@@ -1,4 +1,5 @@
 import {Application as ApplicationComponent} from './components/Application';
+import {Auth as AuthComponent} from './components/Auth';
 import {Console as ConsoleComponent} from './components/Console';
 import {Keyboard as KeyboardComponent} from './components/Keyboard';
 import {PageManager as PageManagerComponent} from './components/PageManager';
@@ -35,6 +36,9 @@ const getComponent = (componentName, componentConfig = {}, forceNewInstance = fa
             case 'Application':
                 newComponentInstance = new ApplicationComponent(componentConfig);
                 break;
+            case 'Auth':
+                newComponentInstance = new AuthComponent(componentConfig);
+                break;
             case 'Console':
                 newComponentInstance = new ConsoleComponent(componentConfig);
                 break;
@@ -60,6 +64,13 @@ const Application = (config = {}) => {
         componentInstances['Application'] = new ApplicationComponent(config);
     }
     return componentInstances['Application'];
+}
+
+const Auth = (config = {}) => {
+    if(! componentInstances.hasOwnProperty('Auth')) {
+        componentInstances['Auth'] = new AuthComponent(config);
+    }
+    return componentInstances['Auth'];
 }
 
 const Console = (config = {}) => {
@@ -94,6 +105,7 @@ export {
     getComponents,
     getComponent,
     Application,
+    Auth,
     Console,
     Keyboard,
     PageManager,

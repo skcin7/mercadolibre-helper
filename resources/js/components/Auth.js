@@ -1,8 +1,8 @@
-import {User} from './models/User';
+import {User} from '../models/User';
 
 import {
     UtilTypes,
-} from './Utils';
+} from '../Utils';
 
 class Auth
 {

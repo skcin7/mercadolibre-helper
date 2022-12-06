@@ -150,6 +150,13 @@
                 'mountTo': '#app',
                 'components': [
                     {
+                        "name": "Auth",
+                        "enabled": true,
+                        'config': {
+                            'user': {!! Auth::check() ? json_encode(Auth::user(), JSON_PRETTY_PRINT) : 'null' !!},
+                        },
+                    },
+                    {
                         "name": "Keyboard",
                         "enabled": true,
                         "config": {},
