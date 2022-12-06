@@ -37,6 +37,10 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('saved_searches', function (Blueprint $table) {
+            $table->dropForeign(['mercadolibre_site_id']);
+        });
+
         Schema::dropIfExists('mercadolibre_sites');
     }
 };
