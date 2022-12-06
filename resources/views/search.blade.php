@@ -47,7 +47,7 @@
                     @csrf
 
                     <fieldset class="fieldset fieldset-sm">
-                        <legend>Native Mercado Libre Search Controls</legend>
+                        <legend>Mercado Libre Native Search Controls</legend>
 
                         <div class="form-group row mb-2">
                             <div class="col">

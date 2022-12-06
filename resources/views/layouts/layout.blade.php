@@ -25,7 +25,7 @@
         <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}">
         <link rel="mask-icon" href="{{ asset('favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#008800">
+        <meta name="theme-color" content="#ffffff">
     </head>
     <body>
         <div id="app" data-current-page="@yield('pageName')">
