@@ -24,7 +24,9 @@ class UsersSeeder extends Seeder
         foreach($seeder_data as $this_unprocessed_seeder_data) {
 
             $user = new User();
-            $user->setAttribute('id', $this_unprocessed_seeder_data['id']);
+            if(isset($this_unprocessed_seeder_data['id'])) {
+                $user->setAttribute('id', $this_unprocessed_seeder_data['id']);
+            }
             $user->setAttribute('name', $this_unprocessed_seeder_data['name']);
             $user->setAttribute('email', $this_unprocessed_seeder_data['email']);
             $user->setAttribute('email_verified_at', null);
