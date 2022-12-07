@@ -102,7 +102,7 @@
                                     </div>
                                     <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_contain_input" maxlength="255" name="title_must_contain" placeholder="[Title Must Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_contain') }}"/>
                                 </div>
-                                <div class="small lh-sm">
+                                <div class="small lh-sm" style="display: none;">
                                     <div>The title MUST contain all of these words/phrases.</div>
                                     <ul class="list-unstyled mb-0 ps-3">
                                         <li>Use <code>,</code> (comma) to separate multiple words/phrases that all must be matched.</li>
@@ -122,7 +122,7 @@
                                     </div>
                                     <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_not_contain_input" maxlength="255" name="title_must_not_contain" placeholder="[Title Must Not Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_not_contain') }}"/>
                                 </div>
-                                <div class="small lh-sm">
+                                <div class="small lh-sm" style="display: none;">
                                     <div>The title MUST NOT contain any of these words/phrases.</div>
                                     <ul class="list-unstyled mb-0 ps-3">
                                         <li>Use <code>,</code> (comma) to separate multiple words/phrases that must not be matched.</li>
