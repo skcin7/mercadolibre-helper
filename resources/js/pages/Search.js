@@ -368,8 +368,10 @@ class Search extends Page
                 $('<div/>')
                     .addClass('ms-0')
                     .append(
-                        $('<div/>')
-                            .addClass('bg-white matched_listing_thumbnail hover_up')
+                        $('<a/>')
+                            .addClass('bg-white matched_listing_thumbnail hover_up d-block')
+                            .attr('href', matched_listing_data.hasOwnProperty('permalink') ? matched_listing_data.permalink : '#')
+                            .attr('target', '_blank')
                             .append(
                                 $('<img/>')
                                     .attr('src', app().url('images/loading.gif'))

@@ -137,7 +137,7 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-auto">
-                            <button class="btn btn-primary" type="button" data-event-action="find_matched_listings">Find Mercado Libre Listings</button>
+                            <button class="btn btn-primary" type="submit" data-event-action="find_matched_listings">Find Mercado Libre Listings</button>
                         </div>
 
                         {{--                    <div class="col-auto">--}}
