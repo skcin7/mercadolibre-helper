@@ -109,7 +109,7 @@ class SearchController extends Controller
                 'exists:mercadolibre_sites,id',
             ],
             'mercadolibre_category_id' => [
-                'required',
+                'nullable',
                 'string',
             ],
             'keywords' => [
