@@ -123,7 +123,7 @@ class SavedSearch extends Model
                 $all_current_title_must_contain_parts = explode("|", trim($current_title_must_contain));
                 foreach($all_current_title_must_contain_parts as $this_optional_part) {
 
-                    if(str_contains($matched_listings_api_response['results'][$i]['title'], trim($this_optional_part))) {
+                    if(str_contains(strtolower($matched_listings_api_response['results'][$i]['title']), trim(strtolower($this_optional_part)))) {
                         $this_word_or_phrase_is_matched = true;
                     }
 
@@ -136,7 +136,7 @@ class SavedSearch extends Model
 
 
             foreach($title_must_not_contain as $current_title_must_not_contain) {
-                if(str_contains($matched_listings_api_response['results'][$i]['title'], trim($current_title_must_not_contain))) {
+                if(str_contains(strtolower($matched_listings_api_response['results'][$i]['title']), trim(strtolower($current_title_must_not_contain)))) {
                     $all_additional_search_filters_pass = false;
                 }
             }
