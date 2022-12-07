@@ -353,11 +353,11 @@ class Search extends Page
 
     storeFormDataLocally = () => {
         let saved_search = this.getData('saved_search');
-        saved_search.mercadolibre_site_id = $("#find_matched_listings_form").find('select[name=mercadolibre_site_id]').val();
-        saved_search.mercadolibre_catalog_id = $("#find_matched_listings_form").find('select[name=mercadolibre_catalog_id]').val();
-        saved_search.keywords = $("#find_matched_listings_form").find('input[name=keywords]').val();
-        saved_search.title_must_contain = $("#find_matched_listings_form").find('input[name=title_must_contain]').val();
-        saved_search.title_must_not_contain = $("#find_matched_listings_form").find('input[name=title_must_not_contain]').val();
+        saved_search.mercadolibre_site_id = String($("#find_matched_listings_form").find('select[name=mercadolibre_site_id]').val());
+        saved_search.mercadolibre_catalog_id = String($("#find_matched_listings_form").find('select[name=mercadolibre_catalog_id]').val());
+        saved_search.keywords = String($("#find_matched_listings_form").find('input[name=keywords]').val());
+        saved_search.title_must_contain = String($("#find_matched_listings_form").find('input[name=title_must_contain]').val());
+        saved_search.title_must_not_contain = String($("#find_matched_listings_form").find('input[name=title_must_not_contain]').val());
         this.setData('saved_search', saved_search);
     };
 
