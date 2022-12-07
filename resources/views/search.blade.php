@@ -152,7 +152,7 @@
         </div>
 
         <fieldset class="fieldset border" id="matched_listings_fieldset" data-is-started="false" data-is-finished="false" data-is-loading="false" data-total-results="" data-offset="0" data-border-color="branding" data-border-width="2" data-box-shadow="border">
-            <legend>Matched Listings<span class="mb-1" id="results_counter__container" style="display: none;">(Total Results: <span id="results_counter__total">0</span>, Matched So Far: <span id="results_counter__matched">0</span>)</span></legend>
+            <legend>Matched Listings<span class="ms-1" id="results_counter__container" style="display: none;">(Total Results: <span id="results_counter__total">0</span>, Matched So Far: <span id="results_counter__matched">0</span>)</span></legend>
 
             <ul class="list-unstyled" id="matched_listings_list"></ul>
 

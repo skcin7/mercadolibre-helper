@@ -38,9 +38,9 @@ Route::get('privacy', [WelcomeController::class, 'privacy'])->name('web.privacy'
 
 Route::get('search/{id?}', [SearchController::class, 'index'])->name('web.search');
 Route::post('search/find_matched_listings', [SearchController::class, 'findMatchedListings'])->name('web.search.find_listings');
-Route::post('search', [SearchController::class, 'create'])->name('web.search.create');
-Route::put('search/{id}', [SearchController::class, 'update'])->name('web.search.update');
-Route::delete('search/{id}', [SearchController::class, 'delete'])->name('web.search.delete');
+Route::post('search', [SearchController::class, 'create'])->name('web.search.create')->middleware('auth');
+Route::put('search/{id}', [SearchController::class, 'update'])->name('web.search.update')->middleware('auth');
+Route::delete('search/{id}', [SearchController::class, 'delete'])->name('web.search.delete')->middleware('auth');
 
 
 /*  _         _   _                _   _           _   _
@@ -97,4 +97,4 @@ Auth::routes([
     "verify" => false,
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
