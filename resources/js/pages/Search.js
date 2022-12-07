@@ -54,6 +54,16 @@ class Search extends Page
 
         let _this = this;
 
+
+        $("#page_content").on('click', '[data-event-action=toggle_advanced_search_options]', async function(event) {
+            event.preventDefault();
+            console.log('toggle advanced search');
+
+            $('#find_matched_listings_form').slideToggle();
+        });
+
+
+
         $("#page_content").on('click', '[data-event-action=create_or_update_saved_search]', async function(event) {
             event.preventDefault();
             console.log('create or update saved search');

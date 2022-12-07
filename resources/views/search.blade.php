@@ -38,6 +38,8 @@
                 <legend class="text-center">
                     <span class="biggest">{{ $saved_search->exists ? 'Existing Saved' : 'New' }} Search</span>
 
+                    <button class="btn btn-secondary btn-sm ms-1" type="button" data-event-action="toggle_advanced_search_options"><i class="icon-wrench"></i>Toggle</button>
+
                     <button class="btn btn-primary btn-sm ms-1" type="button" data-event-action="create_or_update_saved_search"><i class="icon-floppy-disk"></i>{{ ($saved_search->exists ? 'Save Changes' : 'Save Search') }}</button>
                     @if($saved_search->exists)
                         <button class="btn btn-danger btn-sm ms-1" type="button" data-event-action="delete_saved_search"><i class="icon-trash"></i>Delete Saved Search</button>
