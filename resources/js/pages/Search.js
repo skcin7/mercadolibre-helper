@@ -219,6 +219,10 @@ class Search extends Page
             $('#matched_listings_fieldset').attr('data-total-results', '');
             $('#matched_listings_fieldset').attr('data-offset', 0);
 
+            $('#results_counter__total').text("0");
+            $('#results_counter__matched').text("0");
+            $('#results_counter__container').hide();
+
             $("#find_matched_listings_form").trigger('submit');
         });
 
@@ -242,6 +246,7 @@ class Search extends Page
             $('#matched_listings_fieldset').attr('data-is-loading', true);
 
 
+
             let limit = 50;
             let offset = parseInt($('#matched_listings_fieldset').attr('data-offset'));
 
@@ -263,6 +268,15 @@ class Search extends Page
                 .then((response) => {
                     console.log(response);
                     console.log(response.data);
+
+                    // Update total and matched count values in the DOM that is displayed to the user:
+                    $('#results_counter__container').show();
+                    $('#results_counter__total').text(response.data.resource.paging.total);
+                    let current_matched_count = parseInt($('#results_counter__matched').text());
+                    current_matched_count = (parseInt(current_matched_count) + parseInt(response.data.resource.results_filtered.length));
+                    $('#results_counter__matched').text(current_matched_count);
+
+                    // $('#results_counter__matched').text(response.data.resource.paging.total);
 
                     // $.notify("Success");
 

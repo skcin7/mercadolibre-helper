@@ -66,14 +66,14 @@
                                 </div>
                             </div>
 
-                            <div class="col">
+                            <div class="col d-none">
                                 <div class="input-group disabled">
                                     <div class="input-group-prepend d-none d-md-flex">
                                         <span class="input-group-text px-2">Category</span>
                                     </div>
-                                    <select class="form-control" name="mercadolibre_category_id" disabled>
+                                    <select class="form-control" name="mercadolibre_category_id">
                                         <option value="">[Any Category]</option>
-                                        <option value="MLB186456" selected>Video Games [ID: MLB186456]</option>
+                                        <option value="MLB186456">Video Games [ID: MLB186456]</option>
                                     </select>
                                 </div>
                             </div>
@@ -152,7 +152,7 @@
         </div>
 
         <fieldset class="fieldset border" id="matched_listings_fieldset" data-is-started="false" data-is-finished="false" data-is-loading="false" data-total-results="" data-offset="0" data-border-color="branding" data-border-width="2" data-box-shadow="border">
-            <legend>Matched Listings</legend>
+            <legend>Matched Listings<span class="mb-1" id="results_counter__container" style="display: none;">(Total Results: <span id="results_counter__total">0</span>, Matched So Far: <span id="results_counter__matched">0</span>)</span></legend>
 
             <ul class="list-unstyled" id="matched_listings_list"></ul>
 

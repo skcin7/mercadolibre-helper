@@ -24,7 +24,8 @@ class SavedSearch extends Model
     protected $attributes = [
         'keywords' => "",
         'mercadolibre_site_id' => "MLB",
-        'mercadolibre_category_id' => "MLB186456",
+//        'mercadolibre_category_id' => "MLB186456",
+        'mercadolibre_category_id' => "",
         'title_must_contain' => "",
         'title_must_not_contain' => "",
         'system_group' => "",
@@ -68,7 +69,7 @@ class SavedSearch extends Model
     {
         $http_client = new GuzzleHttpClient();
         $response = $http_client->get("https://api.mercadolibre.com/sites/" . $this->getAttribute('mercadolibre_site_id') . "/search?" . http_build_query([
-                "category" => $this->getAttribute('mercadolibre_category_id'),
+//                "category" => $this->getAttribute('mercadolibre_category_id'),
                 "q" => str_replace(" ", "+", $this->getAttribute('keywords')),
                 "limit" => $limit,
                 "offset" => $offset,
