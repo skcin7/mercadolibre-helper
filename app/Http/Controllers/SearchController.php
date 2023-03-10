@@ -217,7 +217,7 @@ class SearchController extends Controller
 
         return redirect()->route('web.account.saved_searches')
             ->with('flash_message', [
-                'message' => 'Saved Search has been successfully deleted.',
+                'message' => 'Your saved search has been successfully deleted.',
                 'type' => 'success',
             ])
             ;
