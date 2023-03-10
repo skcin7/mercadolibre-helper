@@ -49,8 +49,9 @@
                 <form action="{{ route('web.search.find_listings') }}" id="find_matched_listings_form" method="POST">
                     @csrf
 
-                    <fieldset class="fieldset fieldset-sm">
-                        <legend>Mercado Libre Native Search Controls</legend>
+                    <fieldset class="fieldset p-1">
+                        <legend class="text-center">ML Actual Search Controls</legend>
+                        <p class="mb-0 small lh-sm">Everything in this area is parameters that gets ACTUALLY SENT to ML to create a search.</p>
 
                         <div class="form-group row mb-2">
                             <div class="col">
@@ -91,8 +92,10 @@
                     </fieldset>
 
 
-                    <fieldset class="fieldset fieldset-sm">
-                        <legend>Additional Search Controls (We Process Locally, From Native ML Search Results)</legend>
+                    <fieldset class="fieldset p-1">
+                        <legend class="text-center">Extra ML Search Controls</legend>
+
+                        <p class="mb-0 small lh-sm">Everything in this area is extra controls to help filter out all the junk search results that ML shows you normally. Use section is to help you better filter out the junk that you don't want to see. These parameters are processed locally (not sent to ML), based on the results ML returns, to help filter it out better.</p>
 
                         <div class="form-group row mb-2">
                             <div class="col">
@@ -103,7 +106,7 @@
                                             <div class="small">Words/Phrases</div>
                                         </label>
                                     </div>
-                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_contain_input" maxlength="50000" name="title_must_contain" placeholder="[Title Must Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_contain') }}"/>
+                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_contain_input" maxlength="50000" name="title_must_contain" placeholder="[Must Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_contain') }}"/>
                                 </div>
                                 <div class="small lh-sm">
                                     <div>The title MUST contain all of these words/phrases.</div>
