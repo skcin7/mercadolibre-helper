@@ -51,7 +51,7 @@
 
                     <fieldset class="fieldset p-1">
                         <legend class="text-center">ML Actual Search Controls</legend>
-                        <p class="mb-0 small lh-sm">Everything in this area is parameters that gets ACTUALLY SENT to ML to create a search.</p>
+                        <p class="mb-0 small lh-sm">Everything in this area is parameters that gets ACTUALLY SENT to ML to create a search. This is EXACTLY THE SAME as your regular normal ML search.</p>
 
                         <div class="form-group row mb-2">
                             <div class="col">
@@ -95,7 +95,7 @@
                     <fieldset class="fieldset p-1">
                         <legend class="text-center">Extra ML Search Controls</legend>
 
-                        <p class="mb-0 small lh-sm">Everything in this area is extra controls to help filter out all the junk search results that ML shows you normally. Use section is to help you better filter out the junk that you don't want to see. These parameters are processed locally (not sent to ML), based on the results ML returns, to help filter it out better.</p>
+                        <p class="mb-0 small lh-sm">Everything in this area is EXTRA ADDITIONAL CONTROLS that is used to better filter out the results that ML has retrieved from the regular search.  These parameters are done LOCALLY (not sent to ML), to help better filter out junk results you don't want to see.</p>
 
                         <div class="form-group row mb-2">
                             <div class="col">
