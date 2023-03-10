@@ -55,10 +55,10 @@
                             <div class="col">
                                 <div class="input-group">
                                     <div class="input-group-prepend d-none d-md-flex">
-                                        <span class="input-group-text px-2">Mercado Libre Site<span class="text-danger">*</span></span>
+                                        <span class="input-group-text px-1">ML Site<span class="text-danger">*</span></span>
                                     </div>
                                     <select class="form-control" name="mercadolibre_site_id" required>
-                                        <option value="">[Choose Mercado Libre Site]</option>
+                                        <option value="">[Choose ML Site]</option>
                                         @foreach($mercadolibre_sites as $mercadolibre_site)
                                             <option value="{{ $mercadolibre_site->getAttribute('id') }}" {{ ($mercadolibre_site->getAttribute('id') == $saved_search->getAttribute('mercadolibre_site_id') ? 'selected' : '') }}>{{ $mercadolibre_site->getAttribute('name') }} [ID: {{ $mercadolibre_site->getAttribute('id') }}]</option>
                                         @endforeach
@@ -66,10 +66,10 @@
                                 </div>
                             </div>
 
-                            <div class="col d-none">
-                                <div class="input-group disabled">
-                                    <div class="input-group-prepend d-none d-md-flex">
-                                        <span class="input-group-text px-2">Category</span>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend d-md-flex">
+                                        <span class="input-group-text px-1">Category</span>
                                     </div>
                                     <select class="form-control" name="mercadolibre_category_id">
                                         <option value="">[Any Category]</option>
@@ -81,7 +81,7 @@
                             <div class="col">
                                 <div class="input-group">
                                     <div class="input-group-prepend d-none d-md-flex">
-                                        <span class="input-group-text px-2">Keywords</span>
+                                        <span class="input-group-text px-1">Actual ML Search</span>
                                     </div>
                                     <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" maxlength="255" name="keywords" placeholder="[Keywords...]" type="text" value="{{ $saved_search->getAttribute('keywords') }}"/>
                                 </div>
@@ -102,9 +102,9 @@
                                             <div class="small">Words/Phrases</div>
                                         </label>
                                     </div>
-                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_contain_input" maxlength="255" name="title_must_contain" placeholder="[Title Must Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_contain') }}"/>
+                                    <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_contain_input" maxlength="50000" name="title_must_contain" placeholder="[Title Must Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_contain') }}"/>
                                 </div>
-                                <div class="small lh-sm" style="display: none;">
+                                <div class="small lh-sm">
                                     <div>The title MUST contain all of these words/phrases.</div>
                                     <ul class="list-unstyled mb-0 ps-3">
                                         <li>Use <code>,</code> (comma) to separate multiple words/phrases that all must be matched.</li>
@@ -124,7 +124,7 @@
                                     </div>
                                     <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" id="title_must_not_contain_input" maxlength="255" name="title_must_not_contain" placeholder="[Title Must Not Contain...]" type="text" value="{{ $saved_search->getAttribute('title_must_not_contain') }}"/>
                                 </div>
-                                <div class="small lh-sm" style="display: none;">
+                                <div class="small lh-sm">
                                     <div>The title MUST NOT contain any of these words/phrases.</div>
                                     <ul class="list-unstyled mb-0 ps-3">
                                         <li>Use <code>,</code> (comma) to separate multiple words/phrases that must not be matched.</li>
@@ -152,7 +152,7 @@
         </div>
 
         <fieldset class="fieldset border" id="matched_listings_fieldset" data-is-started="false" data-is-finished="false" data-is-loading="false" data-total-results="" data-offset="0" data-border-color="branding" data-border-width="2" data-box-shadow="border">
-            <legend>Matched Listings<span class="ms-1" id="results_counter__container" style="display: none;">(Total Results: <span id="results_counter__total">0</span>, Matched So Far: <span id="results_counter__matched">0</span>)</span></legend>
+            <legend class="text-center">Matched Listings<span class="ms-1" id="results_counter__container" style="display: none;">(Total Results: <span id="results_counter__total">0</span>, Matched So Far: <span id="results_counter__matched">0</span>)</span></legend>
 
             <ul class="list-unstyled" id="matched_listings_list"></ul>
 

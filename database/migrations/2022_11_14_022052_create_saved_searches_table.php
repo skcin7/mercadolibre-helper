@@ -17,12 +17,16 @@ return new class extends MyMigration
         Schema::create('saved_searches', function (Blueprint $table) {
             $table->id()->startingValue(property_exists($this, 'auto_increment_start_value') ? $this->auto_increment_start_value : 1);
             $table->foreignId('user_id')->constrained('users');
-            $table->string('keywords', 255);
+//            $table->string('keywords', 255);
+            $table->text('keywords');
             $table->string('mercadolibre_site_id', 4);
             $table->string('mercadolibre_category_id', 255);
 
-            $table->string('title_must_contain', 255);
-            $table->string('title_must_not_contain', 255);
+//            $table->string('title_must_contain', 255);
+//            $table->string('title_must_not_contain', 255);
+
+            $table->text('title_must_contain');
+            $table->text('title_must_not_contain');
 
 //            $table->string('include_keywords', 255);
 //            $table->string('exclude_keywords', 255);

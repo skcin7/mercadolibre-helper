@@ -13,14 +13,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        try {
-            config([
-                'app.debug' => in_array(get_ip_address(), ["76.149.55.108"])
-            ]);
-        }
-        catch(Exception $ex) {
-            config(['app.debug' => false]);
-        }
+//        try {
+//            config([
+//                'app.debug' => in_array(get_ip_address(), ["76.149.55.108"])
+//            ]);
+//        }
+//        catch(Exception $ex) {
+//            config(['app.debug' => false]);
+//        }
     }
 
     /**

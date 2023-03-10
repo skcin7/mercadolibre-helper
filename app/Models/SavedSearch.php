@@ -67,12 +67,17 @@ class SavedSearch extends Model
 
     public function findMatchedListingsFromMercadoLibre($limit = 50, $offset = 0)
     {
+//        dd($this->getAttribute('mercadolibre_category_id'));
+        $this->setAttribute('mercadolibre_category_id', "MLB186456");
+
         $http_client = new GuzzleHttpClient();
         $response = $http_client->get("https://api.mercadolibre.com/sites/" . $this->getAttribute('mercadolibre_site_id') . "/search?" . http_build_query([
-//                "category" => $this->getAttribute('mercadolibre_category_id'),
+                "category" => $this->getAttribute('mercadolibre_category_id'),
                 "q" => str_replace(" ", "+", $this->getAttribute('keywords')),
                 "limit" => $limit,
                 "offset" => $offset,
+//                "search_type" => "scan",
+//                "scroll_id" => "",
             ]), [
             'headers' => [
                 'accept' => 'application/json',

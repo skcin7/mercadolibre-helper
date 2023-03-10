@@ -59,7 +59,7 @@ class Search extends Page
             event.preventDefault();
             console.log('toggle advanced search');
 
-            $('#find_matched_listings_form').slideToggle();
+            $('#find_matched_listings_form').slideToggle('fast');
         });
 
 
@@ -307,8 +307,12 @@ class Search extends Page
                     $("img").unveil();
                 })
                 .catch((error) => {
+                    console.log(error);
                     console.log(error.response);
                     console.log(error.response.data);
+
+                    // $clickedButtonElement.html(clicked_button_element_original_html);
+                    // $clickedButtonElement.removeClass('disabled').prop('disabled', false);
 
                     $.notify("An error occurred finding matched listings from Mercado Libre.", {
                         "autoHide": false,
@@ -362,6 +366,8 @@ class Search extends Page
     };
 
     generateMatchedListingElement = (matched_listing_data) => {
+        //console.log(matched_listing_data);
+
         let $matchedListingElement = $('<li/>')
             .addClass('matched_listing')
             .append(
@@ -395,7 +401,8 @@ class Search extends Page
                             .append(
                                 $('<li/>')
                                     // .html('Price: R$ ' + (matched_listing_data.hasOwnProperty('price') ? matched_listing_data.price : 'Price Unknown') )
-                                    .html('<strong>Price:</strong> ' + (matched_listing_data.hasOwnProperty('prices') ? matched_listing_data.prices.prices[0].amount + " " + matched_listing_data.prices.prices[0].currency_id : 'Price Unknown') )
+                                    // .html('<strong>Price:</strong> ' + (matched_listing_data.hasOwnProperty('prices') ? matched_listing_data.prices.prices[0].amount + " " + matched_listing_data.prices.prices[0].currency_id : 'Price Unknown') )
+                                    .html('<strong>Price:</strong> R$ ' + (matched_listing_data.hasOwnProperty('price') ? matched_listing_data.price : 'Price Unknown') )
                             )
                             .append(
                                 $('<li/>')

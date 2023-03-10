@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\SavedSearchResource;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -89,13 +90,21 @@ class SearchController extends Controller
         $limit = $request->input('limit', 50);
         $offset = $request->input('offset', 0);
 
-        $matched_listings_api_response = $saved_search->findMatchedListingsFromMercadoLibre($limit, $offset);
-
-        return $this->respondWithJson(
-            $matched_listings_api_response,
-            "Matched listings API response from Mercado Libre.",
-            200
-        );
+        try {
+            $matched_listings_api_response = $saved_search->findMatchedListingsFromMercadoLibre($limit, $offset);
+            return $this->respondWithJson(
+                $matched_listings_api_response,
+                "Matched listings API response from Mercado Libre.",
+                200
+            );
+        }
+        catch(GuzzleException $ex) {
+            return $this->respondWithJson(
+                null,
+                "Error. " . $ex->getMessage(),
+                422
+            );
+        }
 
     }
 

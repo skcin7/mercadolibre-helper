@@ -8,7 +8,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Page Title: -->
-        <title>{{ config('app.env', 'production') == "development" ? '[DEV] ' : '' }}@yield('pageTitle')</title>
+        <title>{{ config('app.env', 'production') == "development" ? '[DEV] ' : '' }}ML Helper</title>
 
         <!-- Fonts: -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,10 +34,10 @@
                     <nav class="navbar navbar-expand-lg navbar-light" id="header_navbar">
                         <div class="container-fluid p-1 align-items-stretch">
                             <a class="navbar-brand" id="header_navbar__branding" href="{{ route('web.welcome') }}">
-                                <img src="{{ asset('images/MLLogo_500x350.png') }}" width="60"/>
+                                <img src="{{ asset('images/MLLogo_500x350.png') }}" width="50"/>
                                 <div>
-                                    <span class="header_navbar__branding_title">MercadoLibre</span>
-                                    <span class="header_navbar__branding_subtitle">Helper Tools</span>
+                                    <span class="header_navbar__branding_title">ML</span>
+                                    <span class="header_navbar__branding_subtitle">Helper</span>
                                 </div>
                             </a>
                             <button class="navbar-toggler collapsed" id="header_navbar__toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header_navbar_content" aria-controls="header_navbar_content" aria-expanded="false" aria-label="{{ __('Toggle Navigation') }}">
