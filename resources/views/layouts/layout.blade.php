@@ -31,7 +31,7 @@
         <div id="app" data-current-page="@yield('pageName')">
             @if( !(isset($_page['show_header']) && !$_page['show_header']) )
                 <header id="header">
-                    <nav class="navbar navbar-expand-lg navbar-light" id="header_navbar">
+                    <nav class="navbar navbar-expand-md navbar-light" id="header_navbar">
                         <div class="container-fluid p-1 align-items-stretch">
                             <a class="navbar-brand" id="header_navbar__branding" href="{{ route('web.welcome') }}">
                                 <img src="{{ asset('images/MLLogo_500x350.png') }}" width="50"/>

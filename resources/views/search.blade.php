@@ -83,7 +83,7 @@
                             <div class="col">
                                 <div class="input-group">
                                     <div class="input-group-prepend d-none d-md-flex">
-                                        <span class="input-group-text px-1">Actual ML Search</span>
+                                        <span class="input-group-text px-1">Actual ML Search Query</span>
                                     </div>
                                     <input autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" class="form-control" maxlength="255" name="keywords" placeholder="[Keywords...]" type="text" value="{{ $saved_search->getAttribute('keywords') }}"/>
                                 </div>
