@@ -44,6 +44,7 @@
                     @if($saved_search->exists)
                         <button class="btn btn-danger btn-sm ms-1" type="button" data-event-action="delete_saved_search"><i class="icon-trash"></i>Delete Saved Search</button>
                     @endif
+
                 </legend>
                 <form action="{{ route('web.search.find_listings') }}" id="find_matched_listings_form" method="POST">
                     @csrf

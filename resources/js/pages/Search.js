@@ -104,10 +104,16 @@ class Search extends Page
                     }
                 })
                 .catch((error) => {
+                    console.log(error);
                     console.log(error.response);
                     console.log(error.response.data);
 
                     // TODO
+
+                    $.notify(error.response.data.message + ' Cannot Save Search', {
+                        "className": "danger",
+                    });
+
                 })
                 .finally(() => {
                     // TODO
